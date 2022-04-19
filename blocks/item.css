@@ -1,0 +1,61 @@
+.item__image {
+  margin: 0;
+  width: 22.03125vw;
+  max-width: 282px;
+  object-fit: contain;
+  grid-area: image;
+}
+
+.item__title {
+  margin: 25px 0 25px 1.64vw;
+  max-width: 216px;
+  height: 29px;
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.2083;
+  color: #000000;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  grid-area: title;
+}
+
+.item__like-button {
+  position: absolute;
+  align-self: center;
+  justify-self: center;
+  height: 19px;
+  width: 21px;
+  background-image: url(../images/like-button-disabled.png);
+  background-repeat: no-repeat;
+  grid-area: like-button;
+}
+
+.item__like-button:hover {
+  background-image: url(../images/like-button-hover.png);
+  transition: all 0.3s ease-in;
+}
+
+.item__like-button:active {
+  background-image: url(../images/like-button-active.png);
+  transition: all 0.3s ease-in;
+}
+
+.item__like-button:focus {
+  background-image: url(../images/like-button-active.png);
+}
+
+@media screen and (max-width: 768px) {
+  .item__image {
+    width: 88.125vw;
+    max-width: none;
+  }
+
+  .item__title {
+    margin: 25px 6.5625vw 31px 7.447vw;
+    width: 52.1875vw;
+    max-width: 222px;
+    line-height: 1.21;
+  }
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Around The U.S.</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Around The U.S. — an interactive page where users can add, remove, or like photos"
+    />
+    <meta name="author" content="Gal Rozenzaft" />
+    <meta name="keywords" content="U.S., photos, profile" />
+    <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="icon" href="./favicon.ico" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <a href="#" class="logo-title"></a>
+        <div class="header__logo-divider"></div>
+      </header>
+      <main class="content">
+        <section class="profile">
+          <img
+            class="profile__avatar"
+            src="./images/avatar.png"
+            alt="Profile picture"
+          />
+          <h1 class="profile__name">Jacques Cousteau</h1>
+            <p class="profile__about-me">Explorer</p>
+            <button class="profile__edit-profile-button"></button>
+          <button class="profile__add-button"></button>
+        </section>
+        <div class="modal modal_invisible">
+          <div class="modal-container">
+            <a class="modal-container__close-button"></a>
+            <h2 class="modal-container__title">Edit profile</h2>
+            <form class="modal-container__form form">
+              <fieldset class="form__fieldset">
+                <input
+                  type="text"
+                  id="name"
+                  class="form__input input-name"
+                  placeholder="Name"
+                />
+                <input
+                  type="text"
+                  id="about-me"
+                  class="form__input input-about-me"
+                  placeholder="About Me"
+                />
+              </fieldset>
+              <button
+                type="submit"
+                class="form__submit-button"
+              ></button>
+            </form>
+          </div>
+        </div>
+        <section class="photo-card-grid">
+          <ul class="photo-card-grid__items">
+            <li class="photo-card-grid__item">
+              <img
+                class="item__image"
+                src="./images/yosemite-valley.jpg"
+                alt="a picture of yosemite valley"
+              />
+              <h2 class="item__title">Yosemite Valley</h2>
+              <a class="item__like-button"></a>
+            </li>
+            <li class="photo-card-grid__item">
+              <img
+                class="item__image"
+                src="./images/lake-louise.png"
+                alt="a picture of yosemite valley"
+              />
+              <h2 class="item__title">Lake Louise</h2>
+              <a class="item__like-button"></a>
+            </li>
+            <li class="photo-card-grid__item">
+              <img
+                class="item__image"
+                src="./images/bald-mountains.png"
+                alt="a picture of yosemite valley"
+              />
+              <h2 class="item__title">Bald Mountains</h2>
+              <a class="item__like-button"></a>
+            </li>
+            <li class="photo-card-grid__item">
+              <img
+                class="item__image"
+                src="./images/latemar.png"
+                alt="a picture of yosemite valley"
+              />
+              <h2 class="item__title">Latemar</h2>
+              <a class="item__like-button"></a>
+            </li>
+            <li class="photo-card-grid__item">
+              <img
+                class="item__image"
+                src="./images/vanoise-nationa....png"
+                alt="a picture of yosemite valley"
+              />
+              <h2 class="item__title">Vanoise National Park</h2>
+              <a class="item__like-button"></a>
+            </li>
+            <li class="photo-card-grid__item">
+              <img
+                class="item__image"
+                src="./images/lago-di-braies.png"
+                alt="a picture of yosemite valley"
+              />
+              <h2 class="item__title">Lago di Braies</h2>
+              <a class="item__like-button"></a>
+            </li>
+          </ul>
+        </section>
+        <footer class="footer">
+          <p class="footer__text">© 2021 Around The U.S.</p>
+        </footer>
+      </main>
+    </div>
+    <script src="./script/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+.logo-title {
+  margin: 0;
+  padding: 0;
+  width: 173px;
+  height: 33px;
+  background-size: 173px 33px;
+  background-image: url(../images/header-logo-title.png);
+  background-repeat: no-repeat;
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .logo-title {
+    width: 126px;
+    height: 24px;
+    background-size: 126px 24px;
+    margin-left: 8.4375vw;
+  }
+}
