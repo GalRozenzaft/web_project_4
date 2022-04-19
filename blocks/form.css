@@ -2,14 +2,14 @@
   border: none;
   padding: 0;
   min-width: 238px;
-  margin-left: 2.8125vw;
-  margin-right: 2.8125vw;
+  max-width: 358px;
   display: flex;
   flex-direction: column;
   gap: 29.74px;
 }
 
 .form__input {
+  padding: 0;
   border: none;
   border-bottom: 1px solid #545454;
   width: 27.96875vw;
@@ -37,7 +37,9 @@
   background-size: 358px 50.15px;
   background-repeat: no-repeat;
   background-position: center;
-  margin: 48px 2.8125vw 36.51px 2.8125vw;
+  margin-top: 48px;
+  margin-bottom: 36.51px;
+  
 }
 
 .form__submit-button:hover {
