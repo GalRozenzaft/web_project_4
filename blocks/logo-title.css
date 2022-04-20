@@ -4,9 +4,13 @@
   width: 173px;
   height: 33px;
   background-size: 173px 33px;
-  background-image: url(../images/header-logo-title.png);
+  background-image: url(../images/header-logo-title.svg);
   background-repeat: no-repeat;
   display: block;
+}
+
+.logo-title:hover {
+  cursor: url("../images/cursor-pointer-hover.svg"), default;
 }
 
 @media screen and (max-width: 768px) {

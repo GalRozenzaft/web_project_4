@@ -26,7 +26,7 @@
   position: absolute;
   top: -50px;
   right: -50px;
-  background-image: url(../images/close-button.png);
+  background-image: url(../images/close-button.svg);
   background-repeat: no-repeat;
   background-position: center;
   display: inline-block;
@@ -35,7 +35,7 @@
 }
 
 .modal-container__close-button:hover {
-  background-image: url(../images/close-button-hover.png);
+  background-image: url(../images/close-button-hover.svg);
   transition: all 0.2s ease-in;
 }
 
@@ -46,7 +46,7 @@
   max-width: 358px;
   min-width: 238px;
   height: 23px;
-  font-family: Inter;
+  font-family: "Inter", Arial, sans-serif;
   font-size: 24px;
   font-weight: 900;
   line-height: 1.208;

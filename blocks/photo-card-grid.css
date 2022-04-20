@@ -24,6 +24,7 @@
   "image image"
   "title like-button";
   grid-template-columns: 0.76fr 0.24fr;
+  grid-template-rows: 0.78fr 0.22fr;
   border-radius: 12px;
   overflow: hidden;
   position: relative;

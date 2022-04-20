@@ -17,7 +17,6 @@
     <div class="page">
       <header class="header">
         <a href="#" class="logo-title"></a>
-        <div class="header__logo-divider"></div>
       </header>
       <main class="content">
         <section class="profile">
@@ -27,33 +26,32 @@
             alt="Profile picture"
           />
           <h1 class="profile__name">Jacques Cousteau</h1>
-            <p class="profile__about-me">Explorer</p>
-            <button class="profile__edit-profile-button"></button>
+          <p class="profile__about-me">Explorer</p>
+          <button class="profile__edit-profile-button"></button>
           <button class="profile__add-button"></button>
         </section>
         <div class="modal modal_invisible">
           <div class="modal-container">
-            <a class="modal-container__close-button"></a>
+            <a class="modal-container__close-button" type="button"></a>
             <h2 class="modal-container__title">Edit profile</h2>
-            <form class="modal-container__form form">
+            <form class="modal-container__form form" name="profile">
               <fieldset class="form__fieldset">
                 <input
                   type="text"
                   id="name"
-                  class="form__input input-name"
+                  class="form__input"
                   placeholder="Name"
+                  name="profilename"
                 />
                 <input
                   type="text"
                   id="about-me"
-                  class="form__input input-about-me"
+                  class="form__input"
                   placeholder="About Me"
+                  name="profileaboutme"
                 />
               </fieldset>
-              <button
-                type="submit"
-                class="form__submit-button"
-              ></button>
+              <button type="submit" class="form__submit-button"></button>
             </form>
           </div>
         </div>
@@ -66,7 +64,7 @@
                 alt="a picture of yosemite valley"
               />
               <h2 class="item__title">Yosemite Valley</h2>
-              <a class="item__like-button"></a>
+              <a class="item__like-button" type="button"></a>
             </li>
             <li class="photo-card-grid__item">
               <img
@@ -115,10 +113,10 @@
             </li>
           </ul>
         </section>
-        <footer class="footer">
-          <p class="footer__text">© 2021 Around The U.S.</p>
-        </footer>
       </main>
+      <footer class="footer">
+        <p class="footer__text">© 2021 Around The U.S.</p>
+      </footer>
     </div>
     <script src="./script/index.js"></script>
   </body>

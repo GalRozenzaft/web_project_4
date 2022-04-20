@@ -2,7 +2,6 @@ let profile = document.querySelector(".page");
 let modal = document.querySelector(".modal");
 let editButton = document.querySelector(".profile__edit-profile-button");
 let closeButton = document.querySelector(".modal-container__close-button");
-let submitButton = document.querySelector(".modal-container__submit-button");
 let profileName = document.querySelector(".profile__name");
 let aboutMe = document.querySelector(".profile__about-me");
 let nameInput = document.querySelector("#name");
