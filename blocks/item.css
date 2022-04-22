@@ -34,11 +34,13 @@
 .item__like-button:hover {
   background-image: url(../images/like-button-hover.svg);
   transition: all 0.3s ease-in;
+  cursor: pointer;
 }
 
 .item__like-button:active {
   background-image: url(../images/like-button-active.svg);
   transition: all 0.3s ease-in;
+  cursor: pointer;
 }
 
 .item__like-button:focus {

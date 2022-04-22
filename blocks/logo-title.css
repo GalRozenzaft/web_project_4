@@ -10,7 +10,7 @@
 }
 
 .logo-title:hover {
-  cursor: url("../images/cursor-pointer-hover.svg"), default;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {

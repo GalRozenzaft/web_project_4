@@ -1,10 +1,13 @@
 .form__fieldset {
+  margin: 0 auto;
   border: none;
   padding: 0;
   min-width: 238px;
   max-width: 358px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-content: center;
   gap: 29.74px;
 }
 
@@ -39,12 +42,12 @@
   background-position: center;
   margin-top: 48px;
   margin-bottom: 36.51px;
-  
 }
 
 .form__submit-button:hover {
   background-image: url(../images/submit-button-hover.svg);
   transition: all 0.2s ease-in;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {

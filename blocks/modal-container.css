@@ -21,9 +21,8 @@
 
 .modal-container__close-button {
   padding: 0;
-  width: 11.4875vw;
-  max-width: 48.28px;
-  height: 4.4194vh;
+  width: 56px;
+  height: 56px;
   object-fit: contain;
   position: absolute;
   top: -50px;
@@ -39,6 +38,7 @@
 .modal-container__close-button:hover {
   background-image: url(../images/close-button-hover.svg);
   transition: all 0.2s ease-in;
+  cursor: pointer;
 }
 
 .modal-container__title {
@@ -58,6 +58,8 @@
   width: 33.59375vw;
   max-width: 430px;
   min-width: 282px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 

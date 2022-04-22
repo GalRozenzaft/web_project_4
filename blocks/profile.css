@@ -70,14 +70,18 @@
 }
 
 .profile__add-button {
-  padding: 0;
-  height: 50px;
-  width: 150px;
-  background: url(../images/add-button.svg);
-  background-position: center;
+  background-color: transparent;
+  background-image: url(../images/add-button.svg);
+  background-size: 22px 22px;
   background-repeat: no-repeat;
-  border: none;
-  background-clip: content-box;
+  background-position: center;
+  width: 150px;
+  height: 50px;
+  background-color: #000;
+  border: 2px solid #fff;
+  padding: calc(12px + (22px / 2)) calc(62px + (22px / 2));
+  box-sizing: border-box;
+  cursor: pointer;
   align-self: center;
   justify-self: end;
   grid-area: add-button;
@@ -138,8 +142,7 @@
 
   .profile__add-button {
     width: 282px;
-    background-size: 282px 50px;
-    background-repeat: repeat;
+    background-size: 16px 16px;
     justify-self: center;
     margin-top: 36px;
   }
