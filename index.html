@@ -31,28 +31,30 @@
           <button class="profile__add-button"></button>
         </section>
         <div class="modal modal_invisible">
-          <div class="modal-container">
-            <a class="modal-container__close-button" type="button"></a>
-            <h2 class="modal-container__title">Edit profile</h2>
-            <form class="modal-container__form form" name="profile">
-              <fieldset class="form__fieldset">
-                <input
-                  type="text"
-                  id="name"
-                  class="form__input"
-                  placeholder="Name"
-                  name="profilename"
-                />
-                <input
-                  type="text"
-                  id="about-me"
-                  class="form__input"
-                  placeholder="About Me"
-                  name="profileaboutme"
-                />
-              </fieldset>
-              <button type="submit" class="form__submit-button"></button>
-            </form>
+          <div class="modal-wrapper">
+            <div class="modal-container">
+              <a class="modal-container__close-button" type="button"></a>
+              <h2 class="modal-container__title">Edit profile</h2>
+              <form class="modal-container__form form" name="profile">
+                <fieldset class="form__fieldset">
+                  <input
+                    type="text"
+                    id="name"
+                    class="form__input"
+                    placeholder="Name"
+                    name="profilename"
+                  />
+                  <input
+                    type="text"
+                    id="about-me"
+                    class="form__input"
+                    placeholder="About Me"
+                    name="profileaboutme"
+                  />
+                </fieldset>
+                <button type="submit" class="form__submit-button"></button>
+              </form>
+            </div>
           </div>
         </div>
         <section class="photo-card-grid">

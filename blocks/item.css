@@ -9,7 +9,7 @@
 .item__title {
   margin: 25px 0 25px 1.64vw;
   max-width: 216px;
-  height: 29px;
+  min-height: 29px;
   font-family: "Inter", Arial, sans-serif;
   font-size: 24px;
   font-weight: 900;
@@ -22,7 +22,6 @@
 }
 
 .item__like-button {
-  position: absolute;
   align-self: center;
   justify-self: center;
   height: 19px;
