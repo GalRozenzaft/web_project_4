@@ -9,6 +9,8 @@
 .modal-container {
   position: relative;
   margin: 0 auto;
+  width: 88.125vw;
+  max-width: 430px;
   padding: 0;
   background-color: #fff;
   border: none;
@@ -28,6 +30,8 @@
   top: -50px;
   right: -50px;
   background-image: url(../images/close-button.svg);
+  background-color: transparent;
+  border: none;
   background-repeat: no-repeat;
   background-position: center;
   display: inline-block;
@@ -65,7 +69,6 @@
 
 @media screen and (max-width: 768px) {
   .modal-container {
-    top: 21.655%;
     min-width: 282px;
     width: 88.125vw;
   }
@@ -79,12 +82,12 @@
 
   .modal-container__form {
     width: 88.125vw;
-    display: flex;
-    flex-direction: column;
   }
 
   .modal-container__close-button {
     top: -70px;
     right: 0;
+    width: 36.76px;
+    height: 36.76px;
   }
 }

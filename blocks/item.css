@@ -9,7 +9,6 @@
 .item__title {
   margin: 25px 0 25px 1.64vw;
   max-width: 216px;
-  min-height: 29px;
   font-family: "Inter", Arial, sans-serif;
   font-size: 24px;
   font-weight: 900;
@@ -28,6 +27,8 @@
   width: 21px;
   background-image: url(../images/like-button-disabled.svg);
   background-repeat: no-repeat;
+  border: none;
+  background-color: transparent;
   grid-area: like-button;
 }
 
