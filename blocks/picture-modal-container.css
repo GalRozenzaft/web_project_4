@@ -1,0 +1,72 @@
+.picture-modal-container {
+  position: relative;
+  margin: 0 auto;
+  max-width: 75vw;
+  padding: 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.picture-modal-container__close-button {
+  padding: 0;
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  background-image: url(../images/close-button.svg);
+  background-color: transparent;
+  border: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  background-size: 40px 40px;
+  z-index: 5;
+}
+
+.picture-modal-container__close-button:hover {
+  background-image: url(../images/close-button-hover.svg);
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+}
+
+.picture-modal-container__image {
+  max-width: 75vw;
+  max-height: 75vh;
+}
+
+.picture-modal-container__title {
+  margin-top: 10px;
+  max-width: 75vw;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.21;
+  color: #FFFFFF;
+  align-self: flex-start;
+}
+
+@media screen and (max-width: 768px) {
+  .picture-modal-container {
+    min-width: 282px;
+    width: 88.125vw;
+  }
+
+  .picture-modal-container__title {
+    margin-top: 25px;
+    margin-bottom: 76px;
+    font-size: 18px;
+    width: 74.375vw;
+  }
+
+  .picture-modal-container__close-button {
+    top: -39.62px;
+    right: 0;
+    width: 26px;
+    height: 26px;
+  }
+}

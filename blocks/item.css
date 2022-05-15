@@ -2,8 +2,12 @@
   margin: 0;
   width: 22.03125vw;
   max-width: 282px;
-  object-fit: contain;
+  height: 282px;
   grid-area: image;
+}
+
+.item__image:hover {
+  cursor: pointer;
 }
 
 .item__title {
@@ -38,7 +42,7 @@
   cursor: pointer;
 }
 
-.item__like-button:active {
+.item__like-button_active {
   background-image: url(../images/like-button-active.svg);
   transition: all 0.3s ease-in;
   cursor: pointer;
@@ -46,6 +50,26 @@
 
 .item__like-button:focus {
   background-image: url(../images/like-button-active.svg);
+}
+
+.item__delete-button {
+  align-self: center;
+  justify-self: center;
+  height: 19.3px;
+  width: 18px;
+  background-image: url(../images/delete-button.svg);
+  background-repeat: no-repeat;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 18px;
+  right: 15px;
+}
+
+.item__delete-button:hover {
+  background-image: url(../images/delete-button-hover.svg);
+  transition: all 0.3s ease-in;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {

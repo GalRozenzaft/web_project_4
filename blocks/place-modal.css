@@ -1,4 +1,4 @@
-.modal {
+.place-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -10,7 +10,7 @@
   transition: visibility 0.2s, opacity 0.2s linear;
 }
 
-.modal_invisible {
+.place-modal_invisible {
   visibility: hidden;
   opacity: 0;
   transition: visibility 0.2s, opacity 0.2s linear;

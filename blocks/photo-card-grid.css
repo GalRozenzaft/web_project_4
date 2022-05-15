@@ -17,6 +17,7 @@
 .photo-card-grid__item {
   width: 22.03125vw;
   max-width: 282px;
+  
   background-color: #fff;
   display: grid;
   grid-template-areas:

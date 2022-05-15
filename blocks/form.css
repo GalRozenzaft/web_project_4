@@ -44,8 +44,29 @@
   margin-bottom: 36.51px;
 }
 
+.form__create-button {
+  border: none;
+  padding: 0;
+  width: 27.96875vw;
+  max-width: 358px;
+  min-width: 238px;
+  height: 50.15px;
+  background-image: url(../images/create-button.svg);
+  background-size: 358px 50.15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: 48px;
+  margin-bottom: 36.51px;
+}
+
 .form__submit-button:hover {
   background-image: url(../images/submit-button-hover.svg);
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+}
+
+.form__create-button:hover {
+  background-image: url(../images/create-button-hover.svg);
   transition: all 0.2s ease-in;
   cursor: pointer;
 }

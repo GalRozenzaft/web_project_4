@@ -13,12 +13,17 @@
     <link rel="stylesheet" href="./pages/index.css" />
     <link rel="icon" href="./favicon.ico" />
   </head>
+
+  <!-- Body -->
+
   <body>
     <div class="page">
       <header class="header">
         <a href="#" class="logo-title"></a>
       </header>
       <main class="content">
+        <!-- Profile Section -->
+
         <section class="profile">
           <img
             class="profile__avatar"
@@ -30,10 +35,16 @@
           <button class="profile__edit-profile-button" type="button"></button>
           <button class="profile__add-button" type="button"></button>
         </section>
+
+        <!-- Edit Profile Modal -->
+
         <div class="modal modal_invisible">
           <div class="modal-wrapper">
             <div class="modal-container">
-              <button class="modal-container__close-button" type="button"></button>
+              <button
+                class="modal-container__close-button"
+                type="button"
+              ></button>
               <h2 class="modal-container__title">Edit profile</h2>
               <form class="modal-container__form form" name="profile">
                 <fieldset class="form__fieldset">
@@ -57,69 +68,80 @@
             </div>
           </div>
         </div>
+
+        <!-- Add New place Button Modal -->
+
+        <div class="place-modal place-modal_invisible">
+          <div class="modal-wrapper">
+            <div class="place-modal-container">
+              <button
+                class="place-modal-container__close-button"
+                type="button"
+              ></button>
+              <h2 class="place-modal-container__title">New Place</h2>
+              <form
+                class="place-modal-container__form place-form"
+                name="newplace"
+              >
+                <fieldset class="form__fieldset">
+                  <input
+                    type="text"
+                    id="place-title"
+                    class="form__input"
+                    placeholder="Title"
+                    name="place-title"
+                  />
+                  <input
+                    type="url"
+                    id="image-url"
+                    class="form__input"
+                    placeholder="Image URL"
+                    name="image-url"
+                  />
+                </fieldset>
+                <button type="submit" class="form__create-button"></button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Open Picture Modal -->
+
+        <div class="picture-modal picture-modal_invisible">
+          <div class="modal-wrapper">
+            <div class="picture-modal-container">
+              <button
+                class="picture-modal-container__close-button"
+                type="button"
+              ></button>
+              <img class="picture-modal-container__image" />
+              <h2 class="picture-modal-container__title"></h2>
+            </div>
+          </div>
+        </div>
+
+        <!-- Places Cards -->
+
         <section class="photo-card-grid">
-          <ul class="photo-card-grid__items">
-            <li class="photo-card-grid__item">
-              <img
-                class="item__image"
-                src="./images/yosemite-valley.jpg"
-                alt="a picture of yosemite valley"
-              />
-              <h2 class="item__title">Yosemite Valley</h2>
-              <button class="item__like-button" type="button"></button>
-            </li>
-            <li class="photo-card-grid__item">
-              <img
-                class="item__image"
-                src="./images/lake-louise.png"
-                alt="a picture of yosemite valley"
-              />
-              <h2 class="item__title">Lake Louise</h2>
-              <button class="item__like-button" type="button"></button>
-            </li>
-            <li class="photo-card-grid__item">
-              <img
-                class="item__image"
-                src="./images/bald-mountains.png"
-                alt="a picture of yosemite valley"
-              />
-              <h2 class="item__title">Bald Mountains</h2>
-              <button class="item__like-button" type="button"></button>
-            </li>
-            <li class="photo-card-grid__item">
-              <img
-                class="item__image"
-                src="./images/latemar.png"
-                alt="a picture of yosemite valley"
-              />
-              <h2 class="item__title">Latemar</h2>
-              <button class="item__like-button" type="button"></button>
-            </li>
-            <li class="photo-card-grid__item">
-              <img
-                class="item__image"
-                src="./images/vanoise-nationa....png"
-                alt="a picture of yosemite valley"
-              />
-              <h2 class="item__title">Vanoise National Park</h2>
-              <button class="item__like-button" type="button"></button>
-            </li>
-            <li class="photo-card-grid__item">
-              <img
-                class="item__image"
-                src="./images/lago-di-braies.png"
-                alt="a picture of yosemite valley"
-              />
-              <h2 class="item__title">Lago di Braies</h2>
-              <button class="item__like-button" type="button"></button>
-            </li>
-          </ul>
+          <ul class="photo-card-grid__items"></ul>
         </section>
       </main>
       <footer class="footer">
         <p class="footer__text">© 2021 Around The U.S.</p>
       </footer>
     </div>
+
+    <!-- Card Template -->
+
+    <template id="card-template">
+      <li class="photo-card-grid__item">
+        <img class="item__image" />
+        <h2 class="item__title"></h2>
+        <button class="item__like-button" type="button"></button>
+        <button class="item__delete-button" type="button"></button>
+      </li>
+    </template>
+
     <script src="./script/index.js"></script>
   </body>
 </html>
