@@ -13,6 +13,8 @@ In this Project the emphasis was on:
 * Mastering the basics of JavaScript.
 * Manipulating HTML and CSS through JavaScript.
 * Fixing bugs and errors in my JavaScript code.
+* working with arrays and loops.
+* adding, removing, and replacing page elements via JavaScript.
 I've learned a lot of new things, practiced my already somewhat purchased skills and mostly - improved my self-studying skills.
 
 **Figma**
