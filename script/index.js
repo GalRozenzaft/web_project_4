@@ -102,14 +102,16 @@ const placeCloseButton = document.querySelector(
   ".place-modal-container__close-button"
 );
 
-const placeFormElement = document.querySelector(".place-form");
+const placeFormElement = document.querySelector(".form");
 
-function handleAddButton() {
+function handleAddButton(event) {
   placeModal.classList.remove("place-modal_invisible");
+  event.target.classList.add("profile__add-button_active");
 }
 
-function handlePlaceCloseButton() {
+function handlePlaceCloseButton(event) {
   placeModal.classList.add("place-modal_invisible");
+  event.target.classList.remove("profile__add-button_active");
 }
 
 function handleNewPlaceSubmit(event) {

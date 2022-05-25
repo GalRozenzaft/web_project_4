@@ -93,6 +93,11 @@
   opacity: 0.6;
 }
 
+.profile__add-button_active {
+  background-image: url(../images/add-button-hover.svg);
+  opacity: 0.6;
+}
+
 @media screen and (max-width: 768px) {
   .profile {
     margin-bottom: 36px;
