@@ -10,14 +10,16 @@ const nameInput = document.querySelector("#name");
 const aboutMeInput = document.querySelector("#about-me");
 const formElement = document.querySelector(".form");
 
-function handleEditButton() {
+function handleEditButton(event) {
   nameInput.value = profileName.textContent;
   aboutMeInput.value = aboutMe.textContent;
   modal.classList.remove("modal_invisible");
+  event.target.classList.add("profile__edit-profile-button_active");
 }
 
-function handleCloseButton() {
+function handleCloseButton(event) {
   modal.classList.add("modal_invisible");
+  editButton.classList.remove("profile__edit-profile-button_active");
 }
 
 function handleProfileFormSubmit(event) {
@@ -111,7 +113,8 @@ function handleAddButton(event) {
 
 function handlePlaceCloseButton(event) {
   placeModal.classList.add("place-modal_invisible");
-  event.target.classList.remove("profile__add-button_active");
+  // const element = document.querySelector(".profile__add-button");
+  addPlaceButton.classList.remove("profile__add-button_active");
 }
 
 function handleNewPlaceSubmit(event) {
