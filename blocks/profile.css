@@ -66,7 +66,7 @@
 .profile__edit-profile-button:hover {
   background-image: url(../images/edit-button-hover.svg);
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .profile__edit-profile-button_active {
@@ -93,7 +93,7 @@
 .profile__add-button:hover {
   background-image: url(../images/add-button-hover.svg);
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
   opacity: 0.6;
 }
 

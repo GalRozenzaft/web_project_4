@@ -68,7 +68,7 @@
 
 .item__delete-button:hover {
   background-image: url(../images/delete-button-hover.svg);
-  transition: all 0.3s ease-in;
+  transition: all 0.2s ease-in;
   cursor: pointer;
 }
 
