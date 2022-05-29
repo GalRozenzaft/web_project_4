@@ -113,7 +113,6 @@ function handleAddButton(event) {
 
 function handlePlaceCloseButton(event) {
   placeModal.classList.add("place-modal_invisible");
-  // const element = document.querySelector(".profile__add-button");
   addPlaceButton.classList.remove("profile__add-button_active");
 }
 
