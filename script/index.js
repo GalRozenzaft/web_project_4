@@ -1,9 +1,9 @@
 //Edit Profile
 
 const profile = document.querySelector(".page");
-const modal = document.querySelector(".modal");
+const modal = document.querySelector(".modal_type_edit_profile");
 const editButton = document.querySelector(".profile__edit-profile-button");
-const closeButton = document.querySelector(".modal-container__close-button");
+const closeButton = document.querySelector(".close-button_type_edit");
 const profileName = document.querySelector(".profile__name");
 const aboutMe = document.querySelector(".profile__about-me");
 const nameInput = document.querySelector("#name");
@@ -80,9 +80,9 @@ function createCard(place) {
 }
 
 function openCardModal(place) {
-  pictureModal.classList.remove("picture-modal_invisible");
-  const modalImage = document.querySelector(".picture-modal-container__image");
-  const modalTitle = document.querySelector(".picture-modal-container__title");
+  pictureModal.classList.remove("modal_invisible");
+  const modalImage = document.querySelector(".modal-container__image");
+  const modalTitle = document.querySelector(".title_type_place_modal");
   modalTitle.textContent = place.name;
   modalImage.src = place.link;
 }
@@ -92,27 +92,27 @@ initialCards.forEach((card) => {
   cardsContainer.prepend(cardElement);
 });
 
-//Add-Place Button
+//Add-Place
 
-const placeModal = document.querySelector(".place-modal");
+const placeModal = document.querySelector(".modal_type_add_place");
 const addPlaceButton = document.querySelector(".profile__add-button");
 const titleInput = document.querySelector("#place-title");
 const imageUrlInput = document.querySelector("#image-url");
 const title = document.querySelector(".item__title");
 const imageUrl = document.querySelector(".item__image");
 const placeCloseButton = document.querySelector(
-  ".place-modal-container__close-button"
+  ".close-button_type_place"
 );
 
 const placeFormElement = document.querySelector(".form");
 
 function handleAddButton(event) {
-  placeModal.classList.remove("place-modal_invisible");
+  placeModal.classList.remove("modal_invisible");
   event.target.classList.add("profile__add-button_active");
 }
 
 function handlePlaceCloseButton(event) {
-  placeModal.classList.add("place-modal_invisible");
+  placeModal.classList.add("modal_invisible");
   addPlaceButton.classList.remove("profile__add-button_active");
 }
 
@@ -120,7 +120,7 @@ function handleNewPlaceSubmit(event) {
   event.preventDefault();
   title.textContent = titleInput.value;
   imageUrl.src = imageUrl.value;
-  placeModal.classList.add("place-modal_invisible");
+  placeModal.classList.add("modal_invisible");
 }
 
 addPlaceButton.addEventListener("click", handleAddButton);
@@ -152,22 +152,22 @@ deleteButtons.forEach((deleteButton) => {
   deleteButton.addEventListener("click", handleDeleteButton);
 });
 
-// Open-Picture Modal
+// Open-place Modal
 
 const placePictures = document.querySelectorAll(".item__image");
 const placeTitle = document.querySelector(".item__title");
-const pictureModal = document.querySelector(".picture-modal");
-const pictureInput = document.querySelector(".picture-modal-container__image");
-const placeTitleInput = document.querySelector(
-  ".picture-modal-container__title"
+const pictureModal = document.querySelector(".modal_type_open_place");
+const pictureInput = pictureModal.querySelector(".image_type_place_modal");
+const placeTitleInput = pictureModal.querySelector(
+  ".title_type_place_modal"
 );
 
 const pictureModalCloseButton = document.querySelector(
-  ".picture-modal-container__close-button"
+  ".close-button_type_place_modal"
 );
 
 function handlepictureModalCloseButton() {
-  pictureModal.classList.add("picture-modal_invisible");
+  pictureModal.classList.add("modal_invisible");
 }
 
 pictureModalCloseButton.addEventListener(
