@@ -6,24 +6,24 @@ function toggleModal(event) {
 
 //Edit Profile
 
-const profile = document.querySelector(".page");
+const profile = document.querySelector(".profile");
+const editButton = profile.querySelector(".profile__edit-profile-button");
+const profileName = profile.querySelector(".profile__name");
+const profileAboutMe = profile.querySelector(".profile__about-me");
 const editProfileModal = document.querySelector(".modal_type_edit_profile");
-const editButton = document.querySelector(".profile__edit-profile-button");
-const editProfileCloseButton = document.querySelector(
+const editProfileCloseButton = editProfileModal.querySelector(
   ".close-button_type_edit"
 );
-const profileName = document.querySelector(".profile__name");
-const aboutMe = document.querySelector(".profile__about-me");
-const nameInput = document.querySelector("#name");
-const aboutMeInput = document.querySelector("#about-me");
-const editFormElement = document.querySelector(
+const nameInput = editProfileModal.querySelector("#name");
+const profileAboutMeInput = editProfileModal.querySelector("#about-me");
+const editFormElement = editProfileModal.querySelector(
   ".edit-profile-modal-container__form"
 );
 
 function fillProfileForm(event) {
   editButton.classList.add("profile__edit-profile-button_active");
   nameInput.value = profileName.textContent;
-  aboutMeInput.value = aboutMe.textContent;
+  profileAboutMeInput.value = profileAboutMe.textContent;
   toggleModal(editProfileModal);
 }
 
@@ -35,7 +35,7 @@ function EditProfileCloseButton(event) {
 function handleProfileFormSubmit(event) {
   event.preventDefault();
   profileName.textContent = nameInput.value;
-  aboutMe.textContent = aboutMeInput.value;
+  profileAboutMe.textContent = profileAboutMeInput.value;
   editButton.classList.remove("profile__edit-profile-button_active");
   toggleModal(editProfileModal);
 }
@@ -137,37 +137,30 @@ placeCloseButton.addEventListener("click", handlePlaceFormCloseButton);
 
 placeFormElement.addEventListener("submit", newPlaceCreation);
 
-// Open Zoomed-Place-Modal
+// Zoomed-Place-Modal
 
-function openZoomedplaceModal(place) {
-  const zoomedModalImage = document.querySelector(".modal-container__image");
-  const ZoomedModalTitle = document.querySelector(".title_type_place_modal");
-  ZoomedModalTitle.textContent = place.name;
-  zoomedModalImage.src = place.link;
-  toggleModal(pictureModal);
-}
-
-// Close Zoomed-Place-Modal
-
-const placePictures = document.querySelectorAll(".item__image");
-const placeTitle = document.querySelector(".item__title");
-const pictureModal = document.querySelector(".modal_type_open_place");
-const pictureInput = pictureModal.querySelector(".image_type_place_modal");
-const placeTitleInput = pictureModal.querySelector(".title_type_place_modal");
+const zoomedPlaceModal = document.querySelector(".modal_type_open_place");
+const zoomedPlaceImageInput = zoomedPlaceModal.querySelector(
+  ".image_type_place_modal"
+);
+const zoomedPlaceTitleInput = zoomedPlaceModal.querySelector(
+  ".title_type_place_modal"
+);
 const zoomedPlaceModalCloseButton = document.querySelector(
   ".close-button_type_place_modal"
 );
 
-function handleZoomedPlaceModalCloseButton() {
-  toggleModal(pictureModal);
+function openZoomedplaceModal(place) {
+  zoomedPlaceTitleInput.textContent = place.name;
+  zoomedPlaceImageInput.src = place.link;
+  toggleModal(zoomedPlaceModal);
 }
 
-zoomedPlaceModalCloseButton.addEventListener(
-  "click",
-  handleZoomedPlaceModalCloseButton
-);
+zoomedPlaceModalCloseButton.addEventListener("click", () => {
+  toggleModal(zoomedPlaceModal);
+});
 
-//Like Button
+//Like Buttons
 
 const likeButtons = document.querySelectorAll(".item__like-button");
 
