@@ -97,7 +97,7 @@ initialCards.forEach((card) => {
   cardsContainer.append(cardElement);
 });
 
-//Add-Place Modal
+//Add-Place Modal And New Place Creation
 
 const addPlaceModal = document.querySelector(".modal_type_add_place");
 const addPlaceButton = document.querySelector(".profile__add-button");
@@ -133,7 +133,15 @@ function newPlaceCreation(event) {
 
   cardsContainer.prepend(cardElement);
 
+  placeFormElement.reset();
+
   toggleModal(addPlaceModal);
+
+  const likeButton = cardElement.querySelector(".item__like-button");
+  likeButton.addEventListener("click", handleLikeButtonToggle);
+
+  const deleteButton = cardElement.querySelector(".item__delete-button");
+  deleteButton.addEventListener("click", handleDeleteButton);
 }
 
 addPlaceButton.addEventListener("click", handleAddButton);
@@ -165,16 +173,16 @@ zoomedPlaceModalCloseButton.addEventListener("click", () => {
   toggleModal(zoomedPlaceModal);
 });
 
-//Like Buttons
+// Like Buttons
 
 const likeButtons = document.querySelectorAll(".item__like-button");
 
-function handleLikeButtonActivated(event) {
-  event.target.classList.add("item__like-button_active");
+function handleLikeButtonToggle(event) {
+  event.target.classList.toggle("item__like-button_active");
 }
 
 likeButtons.forEach((likeButton) => {
-  likeButton.addEventListener("click", handleLikeButtonActivated);
+  likeButton.addEventListener("click", handleLikeButtonToggle);
 });
 
 // Delete-Place Button

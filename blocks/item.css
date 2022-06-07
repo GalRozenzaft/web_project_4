@@ -48,10 +48,6 @@
   cursor: pointer;
 }
 
-.item__like-button:focus {
-  background-image: url(../images/like-button-active.svg);
-}
-
 .item__delete-button {
   align-self: center;
   justify-self: center;
