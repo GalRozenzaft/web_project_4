@@ -109,7 +109,7 @@ const placeCloseButton = addPlaceModal.querySelector(
   ".modal-container__close-button_type-place"
 );
 const placeFormElement = addPlaceModal.querySelector(
-  ".form__add-place-modal-container"
+  ".form_add-place-modal-container"
 );
 
 function handleAddButton(event) {
@@ -154,13 +154,13 @@ placeFormElement.addEventListener("submit", newPlaceCreation);
 
 const zoomedPlaceModal = document.querySelector(".modal_type-open-place");
 const zoomedPlaceImageInput = zoomedPlaceModal.querySelector(
-  ".image_type-place-modal"
+  ".modal-container__image_type-place-modal"
 );
 const zoomedPlaceTitleInput = zoomedPlaceModal.querySelector(
-  ".title_type-place-modal"
+  ".modal-container__title_type-place-modal"
 );
 const zoomedPlaceModalCloseButton = document.querySelector(
-  ".close-button_type-place-modal"
+  ".modal-container__close-button_type-place-modal"
 );
 
 function openZoomedplaceModal(place) {
