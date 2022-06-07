@@ -12,7 +12,7 @@ const profileName = profile.querySelector(".profile__name");
 const profileAboutMe = profile.querySelector(".profile__about-me");
 const editProfileModal = document.querySelector(".modal_type-edit-profile");
 const editProfileCloseButton = editProfileModal.querySelector(
-  ".close-button_type_edit"
+  ".close-button_type-edit"
 );
 const nameInput = editProfileModal.querySelector("#name");
 const profileAboutMeInput = editProfileModal.querySelector("#about-me");
