@@ -91,7 +91,7 @@ function createCard(place) {
   cardImageElement.alt = place.name;
 
   cardImageElement.addEventListener("click", () => {
-    openZoomedplaceModal(place);
+    openZoomedPlaceModal(place);
   });
 
   return cardElement;
@@ -168,7 +168,7 @@ const zoomedPlaceModalCloseButton = document.querySelector(
   ".modal-container__close-button_type-place-modal"
 );
 
-function openZoomedplaceModal(place) {
+function openZoomedPlaceModal(place) {
   zoomedPlaceTitleInput.textContent = place.name;
   zoomedPlaceImageInput.src = place.link;
   toggleModal(zoomedPlaceModal);
@@ -190,7 +190,7 @@ likeButtons.forEach((likeButton) => {
   likeButton.addEventListener("click", handleLikeButtonToggle);
 });
 
-// Delete-Place Button
+// Delete-Place Buttons
 
 const deleteButtons = document.querySelectorAll(".item__delete-button");
 
