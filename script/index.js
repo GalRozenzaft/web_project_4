@@ -17,7 +17,7 @@ const editProfileCloseButton = editProfileModal.querySelector(
 const nameInput = editProfileModal.querySelector("#name");
 const profileAboutMeInput = editProfileModal.querySelector("#about-me");
 const editFormElement = editProfileModal.querySelector(
-  ".edit-profile-modal-container__form"
+  ".form_edit-profile-modal-container"
 );
 
 function fillProfileForm(event) {
