@@ -21,14 +21,12 @@ const editFormElement = editProfileModal.querySelector(
 );
 
 function fillProfileForm(event) {
-  editButton.classList.add("profile__edit-profile-button_active");
   nameInput.value = profileName.textContent;
   profileAboutMeInput.value = profileAboutMe.textContent;
   toggleModal(editProfileModal);
 }
 
 function EditProfileCloseButton(event) {
-  editButton.classList.remove("profile__edit-profile-button_active");
   toggleModal(editProfileModal);
 }
 
@@ -36,7 +34,6 @@ function handleProfileFormSubmit(event) {
   event.preventDefault();
   profileName.textContent = nameInput.value;
   profileAboutMe.textContent = profileAboutMeInput.value;
-  editButton.classList.remove("profile__edit-profile-button_active");
   toggleModal(editProfileModal);
 }
 
@@ -102,33 +99,41 @@ initialCards.forEach((card) => {
 
 //Add-Place Modal
 
-const placeModal = document.querySelector(".modal_type_add_place");
+const addPlaceModal = document.querySelector(".modal_type_add_place");
 const addPlaceButton = document.querySelector(".profile__add-button");
-const titleInput = placeModal.querySelector("#place-title");
-const imageUrlInput = placeModal.querySelector("#image-url");
+const titleInput = addPlaceModal.querySelector("#place-title");
+const imageUrlInput = addPlaceModal.querySelector("#image-url");
 const title = document.querySelector(".item__title");
 const image = document.querySelector(".item__image");
-const placeCloseButton = placeModal.querySelector(".close-button_type_place");
-const placeFormElement = placeModal.querySelector(
+const placeCloseButton = addPlaceModal.querySelector(
+  ".close-button_type_place"
+);
+const placeFormElement = addPlaceModal.querySelector(
   ".add-place-modal-container__form"
 );
 
 function handleAddButton(event) {
-  addPlaceButton.classList.add("profile__add-button_active");
-  toggleModal(placeModal);
+  toggleModal(addPlaceModal);
 }
 
 function handlePlaceFormCloseButton(event) {
-  addPlaceButton.classList.remove("profile__add-button_active");
-  toggleModal(placeModal);
+  toggleModal(addPlaceModal);
 }
 
 function newPlaceCreation(event) {
   event.preventDefault();
+  const cardTemplate = document.querySelector("#card-template").content;
+  const cardElement = cardTemplate
+    .querySelector(".photo-card-grid__item")
+    .cloneNode(true);
+  const title = cardElement.querySelector(".item__title");
+  const image = cardElement.querySelector(".item__image");
   title.textContent = titleInput.value;
   image.src = imageUrlInput.value;
-  addPlaceButton.classList.remove("profile__add-button_active");
-  toggleModal(placeModal);
+
+  cardsContainer.prepend(cardElement);
+
+  toggleModal(addPlaceModal);
 }
 
 addPlaceButton.addEventListener("click", handleAddButton);
