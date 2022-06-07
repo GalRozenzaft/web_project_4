@@ -83,6 +83,7 @@
 
 .modal-container__title_type-place-modal {
   margin-top: 10px;
+  width: 100%;
   max-width: 75vw;
   font-family: "Inter", Arial, sans-serif;
   font-size: 12px;

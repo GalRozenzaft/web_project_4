@@ -23,10 +23,10 @@ const editFormElement = editProfileModal.querySelector(
 function fillProfileForm(event) {
   nameInput.value = profileName.textContent;
   profileAboutMeInput.value = profileAboutMe.textContent;
-  toggleModal(editProfileModal);
+  // toggleModal(editProfileModal);
 }
 
-function EditProfileCloseButton(event) {
+function handleEditProfileCloseButton(event) {
   toggleModal(editProfileModal);
 }
 
@@ -37,9 +37,14 @@ function handleProfileFormSubmit(event) {
   toggleModal(editProfileModal);
 }
 
-editButton.addEventListener("click", fillProfileForm);
+function handleOpenProfileForm() {
+  fillProfileForm()
+  toggleModal(editProfileModal);
+} 
 
-editProfileCloseButton.addEventListener("click", EditProfileCloseButton);
+editButton.addEventListener("click", handleOpenProfileForm);
+
+editProfileCloseButton.addEventListener("click", handleEditProfileCloseButton);
 
 editFormElement.addEventListener("submit", handleProfileFormSubmit);
 
@@ -189,7 +194,7 @@ likeButtons.forEach((likeButton) => {
 
 const deleteButtons = document.querySelectorAll(".item__delete-button");
 
-function handleDeleteButton() {
+function handleDeleteButton(event) {
   const cardElement = document.querySelector(".photo-card-grid__item");
   cardElement.remove();
 }
