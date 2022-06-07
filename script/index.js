@@ -1,39 +1,52 @@
+//Toggling Modals
+
+function toggleModal(event) {
+  event.classList.toggle("modal_invisible");
+}
+
 //Edit Profile
 
 const profile = document.querySelector(".page");
-const modal = document.querySelector(".modal_type_edit_profile");
+const editProfileModal = document.querySelector(".modal_type_edit_profile");
 const editButton = document.querySelector(".profile__edit-profile-button");
-const closeButton = document.querySelector(".close-button_type_edit");
+const editProfileCloseButton = document.querySelector(
+  ".close-button_type_edit"
+);
 const profileName = document.querySelector(".profile__name");
 const aboutMe = document.querySelector(".profile__about-me");
 const nameInput = document.querySelector("#name");
 const aboutMeInput = document.querySelector("#about-me");
-const formElement = document.querySelector(".form");
+const editFormElement = document.querySelector(
+  ".edit-profile-modal-container__form"
+);
 
-function handleEditButton(event) {
+function fillProfileForm(event) {
+  editButton.classList.add("profile__edit-profile-button_active");
   nameInput.value = profileName.textContent;
   aboutMeInput.value = aboutMe.textContent;
-  modal.classList.remove("modal_invisible");
-  event.target.classList.add("profile__edit-profile-button_active");
+  toggleModal(editProfileModal);
 }
 
-function handleCloseButton(event) {
-  modal.classList.add("modal_invisible");
+function EditProfileCloseButton(event) {
   editButton.classList.remove("profile__edit-profile-button_active");
+  toggleModal(editProfileModal);
 }
 
 function handleProfileFormSubmit(event) {
   event.preventDefault();
   profileName.textContent = nameInput.value;
   aboutMe.textContent = aboutMeInput.value;
-  modal.classList.add("modal_invisible");
+  editButton.classList.remove("profile__edit-profile-button_active");
+  toggleModal(editProfileModal);
 }
 
-editButton.addEventListener("click", handleEditButton);
-closeButton.addEventListener("click", handleCloseButton);
-formElement.addEventListener("submit", handleProfileFormSubmit);
+editButton.addEventListener("click", fillProfileForm);
 
-//Creating Cards
+editProfileCloseButton.addEventListener("click", EditProfileCloseButton);
+
+editFormElement.addEventListener("submit", handleProfileFormSubmit);
+
+//Creating Places Cards
 
 const cardsContainer = document.querySelector(".photo-card-grid__items");
 
@@ -73,59 +86,86 @@ function createCard(place) {
   const cardImageElement = cardElement.querySelector(".item__image");
   cardTitleElement.textContent = place.name;
   cardImageElement.src = place.link;
+  cardImageElement.alt = place.name;
 
-  cardImageElement.addEventListener("click", () => openCardModal(place));
+  cardImageElement.addEventListener("click", () => {
+    openZoomedplaceModal(place);
+  });
 
   return cardElement;
 }
 
-function openCardModal(place) {
-  pictureModal.classList.remove("modal_invisible");
-  const modalImage = document.querySelector(".modal-container__image");
-  const modalTitle = document.querySelector(".title_type_place_modal");
-  modalTitle.textContent = place.name;
-  modalImage.src = place.link;
-}
-
 initialCards.forEach((card) => {
   const cardElement = createCard(card);
-  cardsContainer.prepend(cardElement);
+  cardsContainer.append(cardElement);
 });
 
-//Add-Place
+//Add-Place Modal
 
 const placeModal = document.querySelector(".modal_type_add_place");
 const addPlaceButton = document.querySelector(".profile__add-button");
-const titleInput = document.querySelector("#place-title");
-const imageUrlInput = document.querySelector("#image-url");
+const titleInput = placeModal.querySelector("#place-title");
+const imageUrlInput = placeModal.querySelector("#image-url");
 const title = document.querySelector(".item__title");
-const imageUrl = document.querySelector(".item__image");
-const placeCloseButton = document.querySelector(
-  ".close-button_type_place"
+const image = document.querySelector(".item__image");
+const placeCloseButton = placeModal.querySelector(".close-button_type_place");
+const placeFormElement = placeModal.querySelector(
+  ".add-place-modal-container__form"
 );
 
-const placeFormElement = document.querySelector(".form");
-
 function handleAddButton(event) {
-  placeModal.classList.remove("modal_invisible");
-  event.target.classList.add("profile__add-button_active");
+  addPlaceButton.classList.add("profile__add-button_active");
+  toggleModal(placeModal);
 }
 
-function handlePlaceCloseButton(event) {
-  placeModal.classList.add("modal_invisible");
+function handlePlaceFormCloseButton(event) {
   addPlaceButton.classList.remove("profile__add-button_active");
+  toggleModal(placeModal);
 }
 
-function handleNewPlaceSubmit(event) {
+function newPlaceCreation(event) {
   event.preventDefault();
   title.textContent = titleInput.value;
-  imageUrl.src = imageUrl.value;
-  placeModal.classList.add("modal_invisible");
+  image.src = imageUrlInput.value;
+  addPlaceButton.classList.remove("profile__add-button_active");
+  toggleModal(placeModal);
 }
 
 addPlaceButton.addEventListener("click", handleAddButton);
-placeCloseButton.addEventListener("click", handlePlaceCloseButton);
-placeFormElement.addEventListener("submit", handleNewPlaceSubmit);
+
+placeCloseButton.addEventListener("click", handlePlaceFormCloseButton);
+
+placeFormElement.addEventListener("submit", newPlaceCreation);
+
+// Open Zoomed-Place-Modal
+
+function openZoomedplaceModal(place) {
+  const zoomedModalImage = document.querySelector(".modal-container__image");
+  const ZoomedModalTitle = document.querySelector(".title_type_place_modal");
+  ZoomedModalTitle.textContent = place.name;
+  zoomedModalImage.src = place.link;
+  toggleModal(pictureModal);
+}
+
+// Close Zoomed-Place-Modal
+
+const placePictures = document.querySelectorAll(".item__image");
+const placeTitle = document.querySelector(".item__title");
+const pictureModal = document.querySelector(".modal_type_open_place");
+const pictureInput = pictureModal.querySelector(".image_type_place_modal");
+const placeTitleInput = pictureModal.querySelector(".title_type_place_modal");
+const zoomedPlaceModalCloseButton = document.querySelector(
+  ".close-button_type_place_modal"
+);
+
+function handleZoomedPlaceModalCloseButton() {
+  toggleModal(pictureModal);
+}
+
+zoomedPlaceModalCloseButton.addEventListener(
+  "click",
+  handleZoomedPlaceModalCloseButton
+);
 
 //Like Button
 
@@ -151,26 +191,3 @@ function handleDeleteButton() {
 deleteButtons.forEach((deleteButton) => {
   deleteButton.addEventListener("click", handleDeleteButton);
 });
-
-// Open-place Modal
-
-const placePictures = document.querySelectorAll(".item__image");
-const placeTitle = document.querySelector(".item__title");
-const pictureModal = document.querySelector(".modal_type_open_place");
-const pictureInput = pictureModal.querySelector(".image_type_place_modal");
-const placeTitleInput = pictureModal.querySelector(
-  ".title_type_place_modal"
-);
-
-const pictureModalCloseButton = document.querySelector(
-  ".close-button_type_place_modal"
-);
-
-function handlepictureModalCloseButton() {
-  pictureModal.classList.add("modal_invisible");
-}
-
-pictureModalCloseButton.addEventListener(
-  "click",
-  handlepictureModalCloseButton
-);
