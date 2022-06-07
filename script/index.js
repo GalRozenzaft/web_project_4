@@ -10,7 +10,7 @@ const profile = document.querySelector(".profile");
 const editButton = profile.querySelector(".profile__edit-profile-button");
 const profileName = profile.querySelector(".profile__name");
 const profileAboutMe = profile.querySelector(".profile__about-me");
-const editProfileModal = document.querySelector(".modal_type_edit_profile");
+const editProfileModal = document.querySelector(".modal_type-edit-profile");
 const editProfileCloseButton = editProfileModal.querySelector(
   ".close-button_type_edit"
 );
