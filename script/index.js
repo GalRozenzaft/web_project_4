@@ -99,17 +99,17 @@ initialCards.forEach((card) => {
 
 //Add-Place Modal And New Place Creation
 
-const addPlaceModal = document.querySelector(".modal_type_add_place");
+const addPlaceModal = document.querySelector(".modal_type-add-place");
 const addPlaceButton = document.querySelector(".profile__add-button");
 const titleInput = addPlaceModal.querySelector("#place-title");
 const imageUrlInput = addPlaceModal.querySelector("#image-url");
 const title = document.querySelector(".item__title");
 const image = document.querySelector(".item__image");
 const placeCloseButton = addPlaceModal.querySelector(
-  ".close-button_type_place"
+  ".modal-container__close-button_type-place"
 );
 const placeFormElement = addPlaceModal.querySelector(
-  ".add-place-modal-container__form"
+  ".form__add-place-modal-container"
 );
 
 function handleAddButton(event) {
@@ -152,15 +152,15 @@ placeFormElement.addEventListener("submit", newPlaceCreation);
 
 // Zoomed-Place-Modal
 
-const zoomedPlaceModal = document.querySelector(".modal_type_open_place");
+const zoomedPlaceModal = document.querySelector(".modal_type-open-place");
 const zoomedPlaceImageInput = zoomedPlaceModal.querySelector(
-  ".image_type_place_modal"
+  ".image_type-place-modal"
 );
 const zoomedPlaceTitleInput = zoomedPlaceModal.querySelector(
-  ".title_type_place_modal"
+  ".title_type-place-modal"
 );
 const zoomedPlaceModalCloseButton = document.querySelector(
-  ".close-button_type_place_modal"
+  ".close-button_type-place-modal"
 );
 
 function openZoomedplaceModal(place) {
