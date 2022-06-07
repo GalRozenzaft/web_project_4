@@ -38,9 +38,9 @@ function handleProfileFormSubmit(event) {
 }
 
 function handleOpenProfileForm() {
-  fillProfileForm()
+  fillProfileForm();
   toggleModal(editProfileModal);
-} 
+}
 
 editButton.addEventListener("click", handleOpenProfileForm);
 
@@ -108,8 +108,8 @@ const addPlaceModal = document.querySelector(".modal_type-add-place");
 const addPlaceButton = document.querySelector(".profile__add-button");
 const titleInput = addPlaceModal.querySelector("#place-title");
 const imageUrlInput = addPlaceModal.querySelector("#image-url");
-const title = document.querySelector(".item__title");
-const image = document.querySelector(".item__image");
+const cardTitleElement = document.querySelector(".item__title");
+const cardImageElement = document.querySelector(".item__image");
 const placeCloseButton = addPlaceModal.querySelector(
   ".modal-container__close-button_type-place"
 );
@@ -131,10 +131,10 @@ function newPlaceCreation(event) {
   const cardElement = cardTemplate
     .querySelector(".photo-card-grid__item")
     .cloneNode(true);
-  const title = cardElement.querySelector(".item__title");
-  const image = cardElement.querySelector(".item__image");
-  title.textContent = titleInput.value;
-  image.src = imageUrlInput.value;
+  const cardTitleElement = cardElement.querySelector(".item__title");
+  const cardImageElement = cardElement.querySelector(".item__image");
+  cardTitleElement.textContent = titleInput.value;
+  cardImageElement.src = imageUrlInput.value;
 
   cardsContainer.prepend(cardElement);
 
