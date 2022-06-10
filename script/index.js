@@ -126,7 +126,6 @@ function handleNewPlaceCreation(event) {
   //
 }
 
-placeFormElement.addEventListener("submit", handleNewPlaceCreation);
 
 // Add-Place Button And Add-Place Modal Close Button
 
@@ -202,5 +201,7 @@ function initialize() {
   addPlaceButton.addEventListener("click", handleAddButton);
   placeCloseButton.addEventListener("click", handlePlaceFormCloseButton);
 }
+
+placeFormElement.addEventListener("submit", handleNewPlaceCreation);
 
 initialize();
