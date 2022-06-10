@@ -113,17 +113,16 @@ function handleNewPlaceCreation(event) {
   };
   const cardElement = createCard(card);
 
-  //
   cardsContainer.prepend(cardElement);
   placeFormElement.reset();
   toggleModal(addPlaceModal);
-  //
+  
   const likeButton = cardElement.querySelector(".item__like-button");
   likeButton.addEventListener("click", handleLikeButtonToggle);
 
   const deleteButton = cardElement.querySelector(".item__delete-button");
   deleteButton.addEventListener("click", handleDeleteButton);
-  //
+  
 }
 
 
