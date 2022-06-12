@@ -23,8 +23,6 @@ const editFormElement = editProfileModal.querySelector(
 function fillProfileForm(event) {
   nameInput.value = profileName.textContent;
   profileAboutMeInput.value = profileAboutMe.textContent;
-
-  // toggleModal(editProfileModal);
 }
 
 function handleEditProfileCloseButton(event) {
@@ -102,6 +100,12 @@ function createCard(card) {
     openZoomedPlaceModal(card);
   });
 
+  const likeButton = cardElement.querySelector(".item__like-button");
+  likeButton.addEventListener("click", handleLikeButtonToggle);
+
+  const deleteButton = cardElement.querySelector(".item__delete-button");
+  deleteButton.addEventListener("click", handleDeleteButton);
+
   return cardElement;
 }
 
@@ -116,15 +120,7 @@ function handleNewPlaceCreation(event) {
   cardsContainer.prepend(cardElement);
   placeFormElement.reset();
   toggleModal(addPlaceModal);
-  
-  const likeButton = cardElement.querySelector(".item__like-button");
-  likeButton.addEventListener("click", handleLikeButtonToggle);
-
-  const deleteButton = cardElement.querySelector(".item__delete-button");
-  deleteButton.addEventListener("click", handleDeleteButton);
-  
 }
-
 
 // Add-Place Button And Add-Place Modal Close Button
 
@@ -155,7 +151,7 @@ function openZoomedPlaceModal(place) {
   toggleModal(zoomedPlaceModal);
 }
 
-// Like Buttons
+// Like And Delete Buttons Handlers
 
 function handleLikeButtonToggle(event) {
   event.target.classList.toggle("item__like-button_active");
@@ -172,11 +168,6 @@ function initialize() {
   });
 
   placeFormElement.addEventListener("submit", createCard);
-  const likeButtons = document.querySelectorAll(".item__like-button");
-
-  likeButtons.forEach((likeButton) => {
-    likeButton.addEventListener("click", handleLikeButtonToggle);
-  });
 
   zoomedPlaceModalCloseButton.addEventListener("click", () => {
     toggleModal(zoomedPlaceModal);
@@ -190,12 +181,6 @@ function initialize() {
   );
 
   editFormElement.addEventListener("submit", handleEditProfileFormSubmit);
-
-  const deleteButtons = document.querySelectorAll(".item__delete-button");
-
-  deleteButtons.forEach((deleteButton) => {
-    deleteButton.addEventListener("click", handleDeleteButton);
-  });
 
   addPlaceButton.addEventListener("click", handleAddButton);
   placeCloseButton.addEventListener("click", handlePlaceFormCloseButton);
