@@ -14,7 +14,7 @@
 .form__input {
   padding: 0;
   border: none;
-  border-bottom: 1px solid rgba(84, 84, 84, .2);
+  border-bottom: 1px solid rgba(84, 84, 84, 0.2);
   width: 27.96875vw;
   max-width: 358px;
   min-width: 238px;
@@ -29,6 +29,19 @@
   text-align: left;
 }
 
+.form__input_type_error {
+  border-bottom: 1px solid #ff0000;
+}
+
+.form__input-error-message_active {
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.21;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
 .form__submit-button {
   border: none;
   padding: 0;
@@ -36,12 +49,22 @@
   max-width: 358px;
   min-width: 238px;
   height: 50.15px;
-  background-image: url(../images/submit-button.svg);
+  background-image: url(../images/submit-button-disabled.svg);
   background-size: 358px 50.15px;
   background-repeat: no-repeat;
   background-position: center;
   margin-top: 48px;
   margin-bottom: 36.51px;
+}
+
+.form__submit-button_active {
+  background-image: url(../images/submit-button.svg);
+}
+
+.form__submit-button:hover {
+  background-image: url(../images/submit-button-hover.svg);
+  transition: all 0.2s ease-in;
+  cursor: pointer;
 }
 
 .form__create-button {
@@ -57,12 +80,6 @@
   background-position: center;
   margin-top: 48px;
   margin-bottom: 36.51px;
-}
-
-.form__submit-button:hover {
-  background-image: url(../images/submit-button-hover.svg);
-  transition: all 0.2s ease-in;
-  cursor: pointer;
 }
 
 .form__create-button:hover {
@@ -89,6 +106,5 @@
     margin-bottom: 25px;
     height: 46px;
     width: 74.375vw;
-    
   }
 }

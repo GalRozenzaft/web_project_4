@@ -22,7 +22,6 @@
         <a href="#" class="logo-title"></a>
       </header>
       <main class="content">
-
         <!-- Profile Section -->
 
         <section class="profile">
@@ -47,7 +46,11 @@
                 type="button"
               ></button>
               <h2 class="modal-container__title">Edit profile</h2>
-              <form class="form form_edit-profile-modal-container" name="profile">
+              <form
+                class="form form_edit-profile-modal-container"
+                name="profile"
+                novalidate
+              >
                 <fieldset class="form__fieldset">
                   <input
                     type="text"
@@ -55,14 +58,22 @@
                     class="form__input"
                     placeholder="Name"
                     name="profilename"
+                    required
+                    minlength="2"
+                    maxlength="40"
                   />
+                  <span class="form__input-error-message name-error">Please fill out this field.</span>
                   <input
                     type="text"
                     id="about-me"
                     class="form__input"
                     placeholder="About Me"
                     name="profileaboutme"
+                    required
+                    minlength="2"
+                    maxlength="200"
                   />
+                  <span class="form__input-error-message about-me-error">Please fill out this field.</span>
                 </fieldset>
                 <button type="submit" class="form__submit-button"></button>
               </form>
@@ -80,10 +91,7 @@
                 type="button"
               ></button>
               <h2 class="modal-container__title">New Place</h2>
-              <form
-                class="form form_add-place-modal-container"
-                name="newplace"
-              >
+              <form class="form form_add-place-modal-container" name="newplace">
                 <fieldset class="form__fieldset">
                   <input
                     type="text"
@@ -115,8 +123,12 @@
                 class="modal-container__close-button modal-container__close-button_type-place-modal"
                 type="button"
               ></button>
-              <img class="modal-container__image modal-container__image_type-place-modal" />
-              <h2 class="modal-container__title modal-container__title_type-place-modal"></h2>
+              <img
+                class="modal-container__image modal-container__image_type-place-modal"
+              />
+              <h2
+                class="modal-container__title modal-container__title_type-place-modal"
+              ></h2>
             </div>
           </div>
         </div>
