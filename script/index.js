@@ -151,38 +151,96 @@ function openZoomedPlaceModal(place) {
   toggleModal(zoomedPlaceModal);
 }
 
-// Validating the "Edit Profile" Form
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+// Form Validation
 
 const formElement = document.querySelector(".form");
 const formInput = formElement.querySelector(".form__input");
-const formError = formElement.querySelector(`.${formInput.id}-error`);
+// const formError = formElement.querySelector(`.${formInput.id}-error`);
 
-const showInputError = (element) => {
-  console.log("showInputError was called");
-  formInput.classList.add("form__input_type_error");
-  formError.classList.add("form__input-error-message_active");
+const showInputError = (formElement, inputElement, errorMessage) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.add("form__input_type_error");
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add("form__input-error-message_active");
 };
 
-const hideInputError = (element) => {
-  console.log("hideInputError was called");
-  formInput.classList.remove("form__input_type_error");
-  formError.classList.remove("form__input-error-message_active");
+const hideInputError = (formElement, inputElement) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.remove("form__input_type_error");
+  errorElement.classList.remove("form__input-error-message_active");
+  errorElement.textContent = "";
 };
 
-const isValid = () => {
+const isValid = (formElement, inputElement) => {
   if (!formInput.validity.valid) {
-    showInputError(formInput);
+    showInputError(formElement, inputElement, inputElement.validationMessage);
   } else {
-    hideInputError(formInput);
+    hideInputError(formElement, inputElement);
   }
 };
 
-formElement.addEventListener("submit", function (evt) {
-  evt.preventDefault();
-});
+// formElement.addEventListener("submit", function (evt) {
+//   evt.preventDefault();
+// });
 
-formInput.addEventListener("input", isValid);
+// formInput.addEventListener("input", isValid);
 
+const setEventListeners = (formElement) => {
+  const inputList = Array.from(formElement.querySelectorAll(".form__input"));
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener("input", () => {
+      isValid(formElement, inputElement);
+    });
+  });
+};
+
+const enableValidation = () => {
+  const formList = Array.from(document.querySelectorAll(".form"));
+  formList.forEach((formElement) => {
+    formElement.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+    });
+    setEventListeners(formElement);
+  });
+};
+
+enableValidation();
+
+const hasInvalidInput = (inputList) => {
+  return inputList.some((inputElement) => {
+    return !inputElement.validity.valid;
+  });
+};
+
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // Like And Delete Buttons Handlers
 
 function handleLikeButtonToggle(event) {
