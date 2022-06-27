@@ -40,6 +40,8 @@
   line-height: 1.21;
   letter-spacing: 0em;
   text-align: left;
+  color: #FF0000;
+  ;
 }
 
 .form__submit-button {
@@ -49,7 +51,7 @@
   max-width: 358px;
   min-width: 238px;
   height: 50.15px;
-  background-image: url(../images/submit-button-disabled.svg);
+  background-image: url(../images/submit-button.svg);
   background-size: 358px 50.15px;
   background-repeat: no-repeat;
   background-position: center;
@@ -57,8 +59,8 @@
   margin-bottom: 36.51px;
 }
 
-.form__submit-button_active {
-  background-image: url(../images/submit-button.svg);
+.form__submit-button_inactive {
+  background-image: url(../images/submit-button-disabled.svg);
 }
 
 .form__submit-button:hover {

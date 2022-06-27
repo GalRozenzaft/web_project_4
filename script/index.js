@@ -200,9 +200,11 @@ const isValid = (formElement, inputElement) => {
 
 const setEventListeners = (formElement) => {
   const inputList = Array.from(formElement.querySelectorAll(".form__input"));
+  const submitButtonElement = formElement.querySelector(".form__submit-button");
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", () => {
       isValid(formElement, inputElement);
+      toggleSubmitButtonState(inputList, submitButtonElement);
     });
   });
 };
@@ -225,7 +227,13 @@ const hasInvalidInput = (inputList) => {
   });
 };
 
-
+const toggleSubmitButtonState = (inputList, submitButtonElement) => {
+  if (hasInvalidInput(inputList)) {
+    submitButtonElement.classList.add("form__submit-button_inactive");
+  } else {
+    submitButtonElement.classList.remove("form__submit-button_inactive");
+  }
+};
 
 //
 //
