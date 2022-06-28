@@ -166,10 +166,6 @@ function openZoomedPlaceModal(place) {
 //
 // Form Validation
 
-const formElement = document.querySelector(".form");
-const formInput = formElement.querySelector(".form__input");
-// const formError = formElement.querySelector(`.${formInput.id}-error`);
-
 const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add("form__input_type_error");
@@ -185,20 +181,14 @@ const hideInputError = (formElement, inputElement) => {
 };
 
 const isValid = (formElement, inputElement) => {
-  if (!formInput.validity.valid) {
+  if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage);
   } else {
     hideInputError(formElement, inputElement);
   }
 };
 
-// formElement.addEventListener("submit", function (evt) {
-//   evt.preventDefault();
-// });
-
-// formInput.addEventListener("input", isValid);
-
-const setEventListeners = (formElement) => {
+const setInputsEventListeners = (formElement) => {
   const inputList = Array.from(formElement.querySelectorAll(".form__input"));
   const submitButtonElement = formElement.querySelector(".form__submit-button");
   inputList.forEach((inputElement) => {
@@ -209,26 +199,32 @@ const setEventListeners = (formElement) => {
   });
 };
 
-const enableValidation = () => {
+const enableFormValidation = () => {
   const formList = Array.from(document.querySelectorAll(".form"));
   formList.forEach((formElement) => {
     formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
     });
-    setEventListeners(formElement);
+
+    setInputsEventListeners(formElement);
+
+    // const fieldSetList = Array.from(formElement.querySelectorAll(".form__fieldset"));
+    // fieldSetList.forEach((fieldset) => {
+    //   setInputsEventListeners(fieldset);
+    // });
   });
 };
 
-enableValidation();
+enableFormValidation();
 
-const hasInvalidInput = (inputList) => {
+const hasInvalidListInput = (inputList) => {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
   });
 };
 
 const toggleSubmitButtonState = (inputList, submitButtonElement) => {
-  if (hasInvalidInput(inputList)) {
+  if (hasInvalidListInput(inputList)) {
     submitButtonElement.classList.add("form__submit-button_inactive");
   } else {
     submitButtonElement.classList.remove("form__submit-button_inactive");

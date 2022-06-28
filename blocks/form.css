@@ -60,6 +60,8 @@
 }
 
 .form__submit-button_inactive {
+  pointer-events: none;
+  cursor: not-allowed;
   background-image: url(../images/submit-button-disabled.svg);
 }
 
