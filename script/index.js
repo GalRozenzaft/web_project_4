@@ -19,6 +19,11 @@ const profileAboutMeInput = editProfileModal.querySelector("#about-me");
 const editFormElement = editProfileModal.querySelector(
   ".form_edit-profile-modal-container"
 );
+const aroundTheEditProfileModal = document.querySelector(".modal-wrapper");
+
+
+
+// aroundTheEditProfileModal.addEventListener("click", x);
 
 function fillProfileForm(event) {
   nameInput.value = profileName.textContent;
@@ -151,100 +156,6 @@ function openZoomedPlaceModal(place) {
   toggleModal(zoomedPlaceModal);
 }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-// Form Validation
-
-const showInputError = (formElement, inputElement, errorMessage) => {
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.add("form__input_type_error");
-  errorElement.textContent = errorMessage;
-  errorElement.classList.add("form__input-error-message_active");
-};
-
-const hideInputError = (formElement, inputElement) => {
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove("form__input_type_error");
-  errorElement.classList.remove("form__input-error-message_active");
-  errorElement.textContent = "";
-};
-
-const isValid = (formElement, inputElement) => {
-  if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
-  } else {
-    hideInputError(formElement, inputElement);
-  }
-};
-
-const setInputsEventListeners = (formElement) => {
-  const inputList = Array.from(formElement.querySelectorAll(".form__input"));
-  const submitButtonElement = formElement.querySelector(".form__submit-button");
-  inputList.forEach((inputElement) => {
-    inputElement.addEventListener("input", () => {
-      isValid(formElement, inputElement);
-      toggleSubmitButtonState(inputList, submitButtonElement);
-    });
-  });
-};
-
-const enableFormValidation = () => {
-  const formList = Array.from(document.querySelectorAll(".form"));
-  formList.forEach((formElement) => {
-    formElement.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-    });
-
-    setInputsEventListeners(formElement);
-
-    // const fieldSetList = Array.from(formElement.querySelectorAll(".form__fieldset"));
-    // fieldSetList.forEach((fieldset) => {
-    //   setInputsEventListeners(fieldset);
-    // });
-  });
-};
-
-enableFormValidation();
-
-const hasInvalidListInput = (inputList) => {
-  return inputList.some((inputElement) => {
-    return !inputElement.validity.valid;
-  });
-};
-
-const toggleSubmitButtonState = (inputList, submitButtonElement) => {
-  if (hasInvalidListInput(inputList)) {
-    submitButtonElement.classList.add("form__submit-button_inactive");
-  } else {
-    submitButtonElement.classList.remove("form__submit-button_inactive");
-  }
-};
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 // Like And Delete Buttons Handlers
 
 function handleLikeButtonToggle(event) {
@@ -277,9 +188,12 @@ function initialize() {
   editFormElement.addEventListener("submit", handleEditProfileFormSubmit);
 
   addPlaceButton.addEventListener("click", handleAddButton);
+  
   placeCloseButton.addEventListener("click", handlePlaceFormCloseButton);
 }
 
 placeFormElement.addEventListener("submit", handleNewPlaceCreation);
+
+
 
 initialize();

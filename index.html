@@ -99,16 +99,22 @@
                     class="form__input"
                     placeholder="Title"
                     name="place-title"
+                    required
+                    minlength="1"
+                    maxlength="30"
                   />
+                  <span class="form__input-error-message place-title-error"></span>
                   <input
                     type="url"
                     id="image-url"
                     class="form__input"
                     placeholder="Image URL"
                     name="image-url"
+                    required
                   />
+                  <span class="form__input-error-message image-url-error"></span>
                 </fieldset>
-                <button type="submit" class="form__create-button"></button>
+                <button type="submit" class="form__submit-button form__create-button"></button>
               </form>
             </div>
           </div>
@@ -156,5 +162,6 @@
     </template>
 
     <script src="./script/index.js"></script>
+    <script src="./script/validation.js"></script>
   </body>
 </html>
