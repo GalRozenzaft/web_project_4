@@ -43,6 +43,7 @@ function enableFormValidation(settings) {
 
     const inputList = [...form.querySelectorAll(inputSelector)];
     const submitButton = form.querySelector(submitButtonSelector);
+    toggleSubmitButtonState(inputList, submitButton);
     inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
         isInputVlaid(inputElement);
