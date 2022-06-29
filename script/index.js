@@ -19,11 +19,6 @@ const profileAboutMeInput = editProfileModal.querySelector("#about-me");
 const editFormElement = editProfileModal.querySelector(
   ".form_edit-profile-modal-container"
 );
-const aroundTheEditProfileModal = document.querySelector(".modal-wrapper");
-
-
-
-// aroundTheEditProfileModal.addEventListener("click", x);
 
 function fillProfileForm(event) {
   nameInput.value = profileName.textContent;
