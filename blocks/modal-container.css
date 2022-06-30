@@ -16,9 +16,11 @@
 .modal-container_type-open-place {
   position: relative;
   margin: 0 auto;
+  width: auto;
   max-width: 75vw;
   max-height: 75vh;
   padding: 0;
+  background-color:transparent;
   border: none;
   display: flex;
   flex-direction: column;
@@ -83,7 +85,7 @@
 
 .modal-container__title_type-place-modal {
   margin-top: 10px;
-  width: 100%;
+  max-width: 75vw;
   max-width: 75vw;
   font-family: "Inter", Arial, sans-serif;
   font-size: 12px;

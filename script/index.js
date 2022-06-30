@@ -183,12 +183,10 @@ function initialize() {
   editFormElement.addEventListener("submit", handleEditProfileFormSubmit);
 
   addPlaceButton.addEventListener("click", handleAddButton);
-  
+
   placeCloseButton.addEventListener("click", handlePlaceFormCloseButton);
+
+  placeFormElement.addEventListener("submit", handleNewPlaceCreation);
 }
-
-placeFormElement.addEventListener("submit", handleNewPlaceCreation);
-
-
 
 initialize();
