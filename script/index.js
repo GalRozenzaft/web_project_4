@@ -1,6 +1,7 @@
 //Toggling Modals
 
 function toggleModal(event) {
+  console.log("toggleModal called");
   event.classList.toggle("modal_invisible");
 }
 
@@ -16,8 +17,15 @@ const editProfileCloseButton = editProfileModal.querySelector(
 );
 const nameInput = editProfileModal.querySelector("#name");
 const profileAboutMeInput = editProfileModal.querySelector("#about-me");
-const editFormElement = editProfileModal.querySelector(
+const editProfileFormElement = editProfileModal.querySelector(
   ".form_edit-profile-modal-container"
+);
+const editProfileModalContainer = editProfileModal.querySelector(
+  ".modal-container_type-edit-profile"
+);
+
+const editProfileOverlay = editProfileModal.querySelector(
+  ".modal-overlay_type-edit-profile"
 );
 
 function fillProfileForm(event) {
@@ -26,6 +34,7 @@ function fillProfileForm(event) {
 }
 
 function handleEditProfileCloseButton(event) {
+  console.log("handleEditProfileCloseButton called");
   toggleModal(editProfileModal);
 }
 
@@ -44,8 +53,10 @@ function handleOpenProfileForm() {
 //Creating Places Cards
 
 const cardsContainer = document.querySelector(".photo-card-grid__items");
-
 const addPlaceModal = document.querySelector(".modal_type-add-place");
+// const addPlaceModalContainer = addPlaceModal.querySelector(
+//   ".modal-container_type-add-place"
+// );
 const addPlaceButton = document.querySelector(".profile__add-button");
 const titleInput = addPlaceModal.querySelector("#place-title");
 const imageUrlInput = addPlaceModal.querySelector("#image-url");
@@ -135,6 +146,7 @@ function handlePlaceFormCloseButton(event) {
 // Zoomed-Place-Modal
 
 const zoomedPlaceModal = document.querySelector(".modal_type-open-place");
+// const zoomedPlaceModalContainer = zoomedPlaceModal.querySeector(".modal-container_type-open-place");
 const zoomedPlaceImageInput = zoomedPlaceModal.querySelector(
   ".modal-container__image_type-place-modal"
 );
@@ -169,24 +181,55 @@ function initialize() {
 
   placeFormElement.addEventListener("submit", createCard);
 
-  zoomedPlaceModalCloseButton.addEventListener("click", () => {
-    toggleModal(zoomedPlaceModal);
-  });
+  placeFormElement.addEventListener("submit", handleNewPlaceCreation);
 
-  editButton.addEventListener("click", handleOpenProfileForm);
-
-  editProfileCloseButton.addEventListener(
-    "click",
-    handleEditProfileCloseButton
+  editProfileFormElement.addEventListener(
+    "submit",
+    handleEditProfileFormSubmit
   );
 
-  editFormElement.addEventListener("submit", handleEditProfileFormSubmit);
+  //Toggle Modal Listeners
+
+  editButton.addEventListener("click", handleOpenProfileForm);
 
   addPlaceButton.addEventListener("click", handleAddButton);
 
   placeCloseButton.addEventListener("click", handlePlaceFormCloseButton);
 
-  placeFormElement.addEventListener("submit", handleNewPlaceCreation);
+  zoomedPlaceModalCloseButton.addEventListener("click", () => {
+    toggleModal(zoomedPlaceModal);
+  });
+
+  editProfileCloseButton.addEventListener(
+    "click",
+    handleEditProfileCloseButton
+  );
 }
 
 initialize();
+
+editProfileOverlay.addEventListener("click", (evt) => {
+  if (
+    evt.target != editProfileModalContainer &&
+    evt.target != editProfileCloseButton
+  ) {
+    toggleModal(editProfileModal);
+  }
+});
+
+function escCloseModal(evt, modalElement) {
+  if (evt.key === "Escape") {
+    modalElement.classList.add("modal_invisible");
+  }
+}
+
+function enableModalEsc() {
+  const modalList = [...document.querySelectorAll(".modal")];
+  modalList.forEach((modalElement) => {
+    document.addEventListener("keydown", (evt) => {
+      escCloseModal(evt, modalElement);
+    });
+  });
+}
+
+enableModalEsc();
