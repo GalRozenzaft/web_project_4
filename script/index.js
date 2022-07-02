@@ -217,6 +217,8 @@ editProfileOverlay.addEventListener("click", (evt) => {
   }
 });
 
+// Esc Modal
+
 function escCloseModal(evt, modalElement) {
   if (evt.key === "Escape") {
     modalElement.classList.add("modal_invisible");
