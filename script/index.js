@@ -188,6 +188,25 @@ function initialize() {
     handleEditProfileFormSubmit
   );
 
+  // Esc Modal
+
+function escCloseModal(evt, modalElement) {
+  if (evt.key === "Escape") {
+    modalElement.classList.add("modal_invisible");
+  }
+}
+
+function enableModalEsc() {
+  const modalList = [...document.querySelectorAll(".modal")];
+  modalList.forEach((modalElement) => {
+    document.addEventListener("keydown", (evt) => {
+      escCloseModal(evt, modalElement);
+    });
+  });
+}
+
+enableModalEsc();
+
   //Toggle Modal Listeners
 
   editButton.addEventListener("click", handleOpenProfileForm);
@@ -217,21 +236,4 @@ editProfileOverlay.addEventListener("click", (evt) => {
   }
 });
 
-// Esc Modal
 
-function escCloseModal(evt, modalElement) {
-  if (evt.key === "Escape") {
-    modalElement.classList.add("modal_invisible");
-  }
-}
-
-function enableModalEsc() {
-  const modalList = [...document.querySelectorAll(".modal")];
-  modalList.forEach((modalElement) => {
-    document.addEventListener("keydown", (evt) => {
-      escCloseModal(evt, modalElement);
-    });
-  });
-}
-
-enableModalEsc();
