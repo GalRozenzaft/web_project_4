@@ -1,23 +1,3 @@
-//Toggling Modals
-
-// function toggleModal(event) {
-//   event.classList.toggle("modal_invisible");
-// }
-
- const popupSelector = "modal_invisible";
-
-function openModal(modal) {
-  console.log("openModal called");
-  modal.classList.remove(popupSelector);
-  addKeyDownListener();
-}
-
-function closeModal(modal) {
-  console.log("closeModal called");
-  modal.classList.add(popupSelector);
-  removeKeyDownListener();
-}
-
 //Edit Profile
 
 const profile = document.querySelector(".profile");
@@ -175,46 +155,79 @@ function handleDeleteButton(event) {
   event.target.parentElement.remove();
 }
 
-//const popupSelector = 'modal_invisible';
-// Esc Modal
-function escModal(evt) {
+//Toggling Modals
+
+function ovrlayClosingModal(evt, modalContainer) {
+  console.log("ovrlayClosingModal called");
+  if (evt.target != modalContainer) {
+    closeModal(editProfileModal);
+    console.log("works properly");
+  }
+}
+
+function escModal(evt, modalContainer) {
   console.log("escModal called");
-  if (evt.key === "Escape") {
-    const openedPopup = document.querySelector(`.${popupSelector}`); 
-    closeModal(openedPopup);
-    }
+  if ((evt.key = "Escape")) {
+    closeModal(editProfileModal);
+  }
 }
 
-function addKeyDownListener() {
-  console.log("addKeyDownListener called");
-  document.addEventListener("keydown", escModal);
+function openModal(evt) {
+  console.log("openModal called");
+  evt.classList.remove("modal_invisible");
+  const modalContainers = [...document.querySelectorAll("#x")];
+  console.log(modalContainers);
+  modalContainers.forEach((modalContainer) => {
+    document.addEventListener("mousedown", (evt) => {
+      ovrlayClosingModal(evt, modalContainer);
+    });
+    document.addEventListener("keydown", (evt) => {
+      escModal(evt, modalContainer);
+    });
+  });
 }
 
-function removeKeyDownListener() {
-  console.log("removeKeyDownListener called");
+function closeModal(evt) {
+  console.log("closeModal called");
+  evt.classList.add("modal_invisible");
+  document.removeEventListener("mousedown", ovrlayClosingModal);
   document.removeEventListener("keydown", escModal);
 }
 
+// 2nd try
 
-// function escCloseModal(evt, modal) {
-//   console.log("escCloseModal called");
-//   if (evt.key === "Escape") {
-//     modal.classList.add("modal_invisible");
-//   }
-// }
+function ovrlayClosingModal(evt) {
+  console.log("ovrlayClosingModal called");
+  if (evt.target != editProfileModal) {
+    closeModal(editProfileModal);
+    console.log("works properly");
+  }
+}
 
-// function enableModalEsc() {
-//   const modalList = [...document.querySelectorAll(".modal")];
-//   modalList.forEach((modal) => {
-//     document.addEventListener("keydown", (evt) => {
-//       escCloseModal(evt, modal);
-//     });
-//   });
-// }
+function escModal(evt) {
+  console.log("escModal called");
+  if ((evt.key = "Escape")) {
+    closeModal(editProfileModal);
+  }
+}
 
-// enableModalEsc();
+function openModal(evt) {
+  console.log("openModal called");
+  evt.classList.remove("modal_invisible");
+  document.addEventListener("mousedown", (evt) => {
+    ovrlayClosingModal(evt);
+  });
+  document.addEventListener("keydown", (evt) => {
+    escModal(evt);
+  });
+}
 
-// Close Modal By Pressing On The Overlay
+function closeModal(evt) {
+  console.log("closeModal called");
+  evt.classList.add("modal_invisible");
+  document.removeEventListener("mousedown", ovrlayClosingModal);
+  document.removeEventListener("keydown", escModal);
+}
 
 // Initialize
 
@@ -250,77 +263,3 @@ function initialize() {
 }
 
 initialize();
-
-const ModalOverlay = document.querySelector(".modal-overlay");
-// console.log(ModalOverlay);
-// const modalContainer = ModalOverlay.querySelector(".modal-container");
-// console.log(modalContainer);
-
-// function overlayCloseModal(evt) {
-//   console.log("overlayCloseModal called");
-
-//   if (
-//     !evt.target.classList.contains("modal-container") &&
-//     !evt.target.classList.contains("form")
-//   ) {
-//     modalContainer.classList.add("modal_invisible");
-//   }
-// }
-
-// ModalOverlay.addEventListener("click", overlayCloseModal);
-
-// const modalContainer = document.querySelector(".modal-container");
-
-// function overlayCloseModal(evt, modal) {
-//   if (evt.target != modalContainer) {
-//     modal.classList.add("modal_invisible");
-//   }
-// }
-
-// function enableCloseModalUsingOverlay() {
-//   const modalList = [...document.querySelectorAll(".modal")];
-//   modalList.forEach((modal) => {
-//     modal.addEventListener("click", (evt) => {
-//       overlayCloseModal(evt, modal);
-//     });
-//   });
-// }
-
-// enableCloseModalUsingOverlay();
-
-// const modalContainer = document.querySelector(".modal-container");
-
-// function overlayCloseModal(evt, modal) {
-//   if (evt.target != modalContainer) {
-//     modal.classList.add("modal_invisible");
-//   }
-// }
-
-// function enableCloseModalUsingOverlay() {
-//   const modalList = [...document.querySelectorAll(".modal")];
-//   modalList.forEach((modal) => {
-//     modal.addEventListener("click", (evt) => {
-//       overlayCloseModal(evt, modal);
-//     });
-//   });
-// }
-
-// enableCloseModalUsingOverlay();
-
-// function closeModalUsingOverlay(evt, modal) {
-//   console.log("closeModalUsingOverlay called");
-//   modal.classList.add("modal_invisible");
-//   if (evt.target.classList.contains("modal")) {
-//     console.log("it works");
-//   }
-// }
-// function enableCloseModalUsingOverlay() {
-//   const modalList = [...document.querySelectorAll(".modal")];
-//   modalList.forEach((modal) => {
-//     document.addEventListener("mousedown", (evt) => {
-//       closeModalUsingOverlay(evt, modal);
-//     });
-//   });
-// }
-
-// enableCloseModalUsingOverlay();
