@@ -1,20 +1,17 @@
 //Toggling Modals
 
-// function toggleModal(event) {
-//   event.classList.toggle("modal_invisible");
-// }
-
- const popupSelector = "modal_invisible";
+const popupSelector = "modal_visible";
 
 function openModal(modal) {
   console.log("openModal called");
-  modal.classList.remove(popupSelector);
+  modal.classList.add(popupSelector);
   addKeyDownListener();
+  addOverlayClickListener();
 }
 
 function closeModal(modal) {
   console.log("closeModal called");
-  modal.classList.add(popupSelector);
+  modal.classList.remove(popupSelector);
   removeKeyDownListener();
 }
 
@@ -179,15 +176,38 @@ function handleDeleteButton(event) {
 // Esc Modal
 function escModal(evt) {
   console.log("escModal called");
+  console.log(evt.key);
   if (evt.key === "Escape") {
-    const openedPopup = document.querySelector(`.${popupSelector}`); 
+    console.log("Escape matched");
+    const openedPopup = document.querySelector(`.${popupSelector}`);
+    // const popups = document.querySelector(`.${popupSelector}`);
+    console.log(openedPopup);
     closeModal(openedPopup);
-    }
+  }
 }
+
+// function closeOnEscape(e) {
+//   const currentPopup = document.querySelector(".popup_opened");
+//   if (e.key === "Escape") {
+//     closeModal(currentPopup);
+//   }
+// }
 
 function addKeyDownListener() {
   console.log("addKeyDownListener called");
   document.addEventListener("keydown", escModal);
+}
+
+function addOverlayClickListener() {
+  document.addEventListener("mousedown", onOverlayClick);
+}
+
+function onOverlayClick(e) {
+  const openedPopup = document.querySelector(`.${popupSelector}`);
+  if (e.target.classList.contains("modal-overlay")) {
+    console.log("first");
+    closeModal(openedPopup);
+  }
 }
 
 function removeKeyDownListener() {
@@ -195,13 +215,12 @@ function removeKeyDownListener() {
   document.removeEventListener("keydown", escModal);
 }
 
-
-// function escCloseModal(evt, modal) {
-//   console.log("escCloseModal called");
-//   if (evt.key === "Escape") {
-//     modal.classList.add("modal_invisible");
-//   }
-// }
+function escCloseModal(evt, modal) {
+  console.log("escCloseModal called");
+  if (evt.key === "Escape") {
+    modal.classList.add("modal_invisible");
+  }
+}
 
 // function enableModalEsc() {
 //   const modalList = [...document.querySelectorAll(".modal")];
