@@ -11,6 +11,7 @@ function openModal(modal) {
 function closeModal(modal) {
   modal.classList.remove(modalSelector);
   removeKeyDownListener();
+  removeOverlayClickListener();
 }
 
 //Edit Profile
@@ -29,12 +30,12 @@ const editProfileFormElement = editProfileModal.querySelector(
   ".form_edit-profile-modal-container"
 );
 
-function fillProfileForm(event) {
+function fillProfileForm() {
   nameInput.value = profileName.textContent;
   profileAboutMeInput.value = profileAboutMe.textContent;
 }
 
-function handleEditProfileCloseButton(event) {
+function handleEditProfileCloseButton() {
   closeModal(editProfileModal);
 }
 
@@ -194,6 +195,10 @@ function onOverlayClick(e) {
 
 function removeKeyDownListener() {
   document.removeEventListener("keydown", escModal);
+}
+
+function removeOverlayClickListener() {
+  document.removeEventListener("keydown", onOverlayClick);
 }
 
 function escCloseModal(evt, modal) {
