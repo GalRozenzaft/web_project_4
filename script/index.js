@@ -3,14 +3,12 @@
 const modalSelector = "modal_visible";
 
 function openModal(modal) {
-  console.log("openModal called");
   modal.classList.add(modalSelector);
   addKeyDownListener();
   addOverlayClickListener();
 }
 
 function closeModal(modal) {
-  console.log("closeModal called");
   modal.classList.remove(modalSelector);
   removeKeyDownListener();
 }
@@ -37,7 +35,6 @@ function fillProfileForm(event) {
 }
 
 function handleEditProfileCloseButton(event) {
-  console.log("handleEditProfileCloseButton called");
   closeModal(editProfileModal);
 }
 
@@ -174,18 +171,13 @@ function handleDeleteButton(event) {
 
 // Esc Modal
 function escModal(evt) {
-  console.log("escModal called");
-  console.log(evt.key);
   if (evt.key === "Escape") {
-    console.log("Escape matched");
     const openedPopup = document.querySelector(`.${modalSelector}`);
-    console.log(openedPopup);
     closeModal(openedPopup);
   }
 }
 
 function addKeyDownListener() {
-  console.log("addKeyDownListener called");
   document.addEventListener("keydown", escModal);
 }
 
@@ -196,18 +188,15 @@ function addOverlayClickListener() {
 function onOverlayClick(e) {
   const openedPopup = document.querySelector(`.${modalSelector}`);
   if (e.target.classList.contains("modal-overlay")) {
-    console.log("first");
     closeModal(openedPopup);
   }
 }
 
 function removeKeyDownListener() {
-  console.log("removeKeyDownListener called");
   document.removeEventListener("keydown", escModal);
 }
 
 function escCloseModal(evt, modal) {
-  console.log("escCloseModal called");
   if (evt.key === "Escape") {
     modal.classList.add("modal_invisible");
   }
