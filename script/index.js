@@ -172,7 +172,6 @@ function handleDeleteButton(event) {
   event.target.parentElement.remove();
 }
 
-//const popupSelector = 'modal_invisible';
 // Esc Modal
 function escModal(evt) {
   console.log("escModal called");
@@ -180,18 +179,10 @@ function escModal(evt) {
   if (evt.key === "Escape") {
     console.log("Escape matched");
     const openedPopup = document.querySelector(`.${popupSelector}`);
-    // const popups = document.querySelector(`.${popupSelector}`);
     console.log(openedPopup);
     closeModal(openedPopup);
   }
 }
-
-// function closeOnEscape(e) {
-//   const currentPopup = document.querySelector(".popup_opened");
-//   if (e.key === "Escape") {
-//     closeModal(currentPopup);
-//   }
-// }
 
 function addKeyDownListener() {
   console.log("addKeyDownListener called");
@@ -221,19 +212,6 @@ function escCloseModal(evt, modal) {
     modal.classList.add("modal_invisible");
   }
 }
-
-// function enableModalEsc() {
-//   const modalList = [...document.querySelectorAll(".modal")];
-//   modalList.forEach((modal) => {
-//     document.addEventListener("keydown", (evt) => {
-//       escCloseModal(evt, modal);
-//     });
-//   });
-// }
-
-// enableModalEsc();
-
-// Close Modal By Pressing On The Overlay
 
 // Initialize
 
