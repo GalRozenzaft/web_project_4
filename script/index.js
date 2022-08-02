@@ -172,8 +172,8 @@ function handleDeleteButton(event) {
 // Esc Modal
 function escModal(evt) {
   if (evt.key === "Escape") {
-    const openedModal = document.querySelector(`.${modalSelector}`);
-    closeModal(openedModal);
+    const currentOpenedModal = document.querySelector(`.${modalSelector}`);
+    closeModal(currentOpenedModal);
   }
 }
 
@@ -186,9 +186,9 @@ function addOverlayClickListener() {
 }
 
 function onOverlayClick(e) {
-  const openedModal = document.querySelector(`.${modalSelector}`);
+  const currentOpenedModal = document.querySelector(`.${modalSelector}`);
   if (e.target.classList.contains("modal-overlay")) {
-    closeModal(openedModal);
+    closeModal(currentOpenedModal);
   }
 }
 
