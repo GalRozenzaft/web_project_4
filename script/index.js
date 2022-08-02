@@ -1,17 +1,17 @@
 //Toggling Modals
 
-const popupSelector = "modal_visible";
+const modalSelector = "modal_visible";
 
 function openModal(modal) {
   console.log("openModal called");
-  modal.classList.add(popupSelector);
+  modal.classList.add(modalSelector);
   addKeyDownListener();
   addOverlayClickListener();
 }
 
 function closeModal(modal) {
   console.log("closeModal called");
-  modal.classList.remove(popupSelector);
+  modal.classList.remove(modalSelector);
   removeKeyDownListener();
 }
 
@@ -178,7 +178,7 @@ function escModal(evt) {
   console.log(evt.key);
   if (evt.key === "Escape") {
     console.log("Escape matched");
-    const openedPopup = document.querySelector(`.${popupSelector}`);
+    const openedPopup = document.querySelector(`.${modalSelector}`);
     console.log(openedPopup);
     closeModal(openedPopup);
   }
@@ -194,7 +194,7 @@ function addOverlayClickListener() {
 }
 
 function onOverlayClick(e) {
-  const openedPopup = document.querySelector(`.${popupSelector}`);
+  const openedPopup = document.querySelector(`.${modalSelector}`);
   if (e.target.classList.contains("modal-overlay")) {
     console.log("first");
     closeModal(openedPopup);
