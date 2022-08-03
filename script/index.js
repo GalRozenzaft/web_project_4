@@ -128,7 +128,7 @@ function handleNewPlaceCreation(event) {
 
   cardsContainer.prepend(cardElement);
   placeFormElement.reset();
-  // toggleSubmitButtonState(placeFormElement);
+  // toggleSubmitButtonState();
   closeModal(addPlaceModal);
 }
 

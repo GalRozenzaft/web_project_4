@@ -12,7 +12,7 @@ function hideInputError(inputElement) {
   errorElement.textContent = "";
 }
 
-function isInputVlaid(inputElement) {
+function isInputValid(inputElement) {
   if (inputElement.validity.valid) {
     hideInputError(inputElement);
   } else {
@@ -29,13 +29,13 @@ function toggleSubmitButtonState(inputList, submitButton) {
     submitButton.disabled = false;
     submitButton.classList.remove("form__submit-button_inactive");
   } else {
-    submitButton.disabled = "disabled";
+    submitButton.disabled = true;
     submitButton.classList.add("form__submit-button_inactive");
   }
 }
 
 function enableFormValidation(settings) {
-  const { formSelector, inputSelector, submitButtonSelector, ...rest } =
+  const { formSelector, inputSelector, submitButtonSelector } =
     settings;
   const formList = [...document.querySelectorAll(formSelector)];
   formList.forEach((form) => {
@@ -46,7 +46,7 @@ function enableFormValidation(settings) {
     toggleSubmitButtonState(inputList, submitButton);
     inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
-        isInputVlaid(inputElement);
+        isInputValid(inputElement);
         toggleSubmitButtonState(inputList, submitButton);
       });
     });
