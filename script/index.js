@@ -128,7 +128,8 @@ function handleNewPlaceCreation(event) {
 
   cardsContainer.prepend(cardElement);
   placeFormElement.reset();
-  openModal(addPlaceModal);
+  // toggleSubmitButtonState(placeFormElement);
+  closeModal(addPlaceModal);
 }
 
 // Add-Place Button And Add-Place Modal Close Button
@@ -171,6 +172,7 @@ function handleDeleteButton(event) {
 }
 
 // Esc Modal
+
 function escModal(evt) {
   if (evt.key === "Escape") {
     const currentOpenedModal = document.querySelector(`.${modalSelector}`);
@@ -187,10 +189,12 @@ function addOverlayClickListener() {
 }
 
 function onOverlayClick(e) {
+  console.log("onOverlayClick called");
   const currentOpenedModal = document.querySelector(`.${modalSelector}`);
   if (e.target.classList.contains("modal-overlay")) {
     closeModal(currentOpenedModal);
   }
+  document.removeEventListener("mousedown", onOverlayClick);
 }
 
 function removeKeyDownListener() {
@@ -201,12 +205,6 @@ function removeOverlayClickListener() {
   document.removeEventListener("keydown", onOverlayClick);
 }
 
-function escCloseModal(evt, modal) {
-  if (evt.key === "Escape") {
-    modal.classList.add("modal_invisible");
-  }
-}
-
 // Initialize
 
 function initialize() {
@@ -214,8 +212,6 @@ function initialize() {
     const cardElement = createCard(card);
     cardsContainer.append(cardElement);
   });
-
-  placeFormElement.addEventListener("submit", createCard);
 
   placeFormElement.addEventListener("submit", handleNewPlaceCreation);
 
@@ -241,6 +237,3 @@ function initialize() {
 }
 
 initialize();
-
-const ModalOverlay = document.querySelector(".modal-overlay");
-
