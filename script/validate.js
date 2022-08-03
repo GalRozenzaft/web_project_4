@@ -20,23 +20,22 @@ function isInputValid(inputElement) {
   }
 }
 
-function toggleSubmitButtonState(inputList, submitButton) {
-  const isFormValid = inputList.every(
-    (inputElement) => inputElement.validity.valid
-  );
+const checkFormValidity = (inputList) =>
+  inputList.every((inputElement) => inputElement.validity.valid);
 
-  if (isFormValid) {
-    submitButton.disabled = false;
-    submitButton.classList.remove("form__submit-button_inactive");
-  } else {
-    submitButton.disabled = true;
-    submitButton.classList.add("form__submit-button_inactive");
+  function toggleSubmitButtonState(inputList, submitButton, validationConfig) {
+    isFormValid = checkFormValidity(inputList);
+    if (isFormValid) {
+          submitButton.disabled = false;
+          submitButton.classList.remove("form__submit-button_inactive");
+        } else {
+          submitButton.disabled = true;
+          submitButton.classList.add("form__submit-button_inactive");
+        }
   }
-}
 
 function enableFormValidation(settings) {
-  const { formSelector, inputSelector, submitButtonSelector } =
-    settings;
+  const { formSelector, inputSelector, submitButtonSelector } = settings;
   const formList = [...document.querySelectorAll(formSelector)];
   formList.forEach((form) => {
     form.addEventListener("submit", (evt) => evt.preventDefault());
