@@ -128,7 +128,8 @@ function handleNewPlaceCreation(event) {
 
   cardsContainer.prepend(cardElement);
   placeFormElement.reset();
-  // toggleSubmitButtonState();
+  const submitButton = event.target.querySelector(validationConfig.submitButtonSelector);
+  disabledButton(submitButton);
   closeModal(addPlaceModal);
 }
 
