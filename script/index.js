@@ -190,7 +190,6 @@ function addOverlayClickListener() {
 }
 
 function onOverlayClick(e) {
-  console.log("onOverlayClick called");
   const currentOpenedModal = document.querySelector(`.${modalSelector}`);
   if (e.target.classList.contains("modal-overlay")) {
     closeModal(currentOpenedModal);
