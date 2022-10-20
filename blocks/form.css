@@ -86,9 +86,9 @@
   margin-bottom: 36.51px;
 }
 
-.form__create-button_inactive {
+/* .form__create-button_inactive {
   
-}
+} */
 
 .form__create-button:hover {
   background-image: url(../images/create-button-hover.svg);
